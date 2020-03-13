@@ -1,0 +1,217 @@
+<template>
+  <div class="emoji">
+    <!-- <div class="input-wrap">
+      <div class="footer">
+        <div class="footer-left">
+          <image class="face" src="../../static/images/img/face.png" />
+        </div>
+        <div class="footer-center">
+        </div>
+        <div class="footer-right">
+          <text>发送</text>
+        </div>
+      </div>
+    </div> -->
+    <slider class="emoji-content-swiper" :infinite="false" :show-indicators="true">
+      <div class="emoji-content-wrap" v-for="(item, index) in currentAlbumKeys" :key="index" v-if="index < 2">
+        <div class='emoji-content-item' v-for="(currentEmojiKey, i) in item" :key="i">
+          <image :src="emojiList[currentAlbum][currentEmojiKey].img" :class="[currentAlbum == 'emoji' ? 'emoji-content-img-emoji' : 'emoji-content-img-other']" />
+        </div>
+      </div>
+      <indicator item-color="#999" class="indicator" item-selected-color="#333" :item-size="10"></indicator>
+    </slider>
+  </div>
+</template>
+
+<script>
+  import EmojiObj from '../utils/emojimap.js'
+
+  export default {
+    data () {
+      return {
+        localAlbumImages: ['/images/album-emoji.png'],
+        albumArr: [],
+        currentAlbum: 'emoji',
+        emojiList: {},
+        currentAlbumKeys: [],
+        content: ''
+      }
+    },
+
+    // props: ['isShow', 'inputValue', 'type'],
+
+    mounted () {
+      let currentAlbumKeys = this.splitAlbumKeys(Object.keys(EmojiObj.emojiList[this.currentAlbum]), this.currentAlbum == 'emoji' ? 23 : 10)
+      this.currentAlbumKeys = currentAlbumKeys
+      this.albumArr = EmojiObj.albumArr
+      this.emojiList = EmojiObj.emojiList
+      // this.content = this.inputValue
+    },
+
+    methods: {
+      /**
+       * 每页显示固定个数
+       * arr数据源数组，space每个数组最大容量 
+       * [[], [], []]
+       */
+      splitAlbumKeys (arr, space, currentAlbum) {
+        const delta = space || 23
+        let result = [],
+          factor = Math.ceil(arr.length / delta),
+          begin = 0,
+          end = 1
+        if (factor == 1) {
+          result = [[...arr]]
+        } else {
+          for (let i = 1; i < factor; i++) {
+            let temp = []
+            temp = [...arr.slice(begin, i * delta)]
+            begin = i * delta
+            result.push(temp)
+          }
+          result.push([...arr.slice(delta * (factor - 1), arr.length)])
+        }
+        if (currentAlbum == 'emoji' || this.currentAlbum == 'emoji') { // 只有emoji才添加删除按钮
+          result.map((cata, index) => {
+            if(index != (result.length-1)) {
+              cata.push('[删除]')
+            }
+          })
+        }
+        return result
+      },
+
+      sendMessge (message) {
+        if (!this.content) return false
+
+        this.$emit('send-message', {
+          type: 'text',
+          content: this.content
+        })
+
+        this.content = ''
+      },
+
+      hideShowEmoji () {
+        this.$emit('show-emoji', 1, this.content)
+      },
+
+      /**
+       * 单击emoji
+       */
+      emojiTap (msg) {
+        if (msg === '[删除]') {
+          if (!this.content) return false
+
+          this.content = this.content.substr(0, this.content.lastIndexOf("["))
+
+          return false
+        }
+
+        this.content = `${this.content}${msg}`
+      },
+
+      upload () {
+        this.$emit('on-upload')
+      }
+    }
+  }
+</script>
+
+<style scoped>
+   .indicator {
+     width:714px;
+     height: 30px;
+     position:absolute;
+     bottom: 20px;
+     left: 1px;
+     item-color: #999;
+     item-selected-color: #333;
+     item-size: 20px;
+   }
+
+  .face {
+    width: 60px;
+    height: 60px;
+  }
+	.footer-center {
+    flex: 1;
+		height: 70ux;
+		margin: 0 20px;
+	}
+
+	.input-text {
+		height: 70px;
+    line-height:70px;
+		background: #fff;
+		border: solid 1px #D2D2D2;
+		overflow: hidden;
+		padding: 0 20px;
+		border-radius: 30px;
+		font-size: 28px;
+	}
+
+  /*内容  */
+  .emoji-content {
+    width: 100%;
+    height: 400px;
+    /* padding-top: 30rpx; */
+    padding-left: 20px;
+    box-sizing:border-box;
+  }
+  .emoji-content-swiper {
+    width: 750px;
+    height: 360px;
+    padding-top: 30px;
+    background-color: #fff;
+  }
+
+  .emoji-content-wrap {
+    width: 750px;
+		flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .emoji-content-item {
+		flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  .emoji-content-img-emoji {
+    width: 50px;
+    height: 50px;
+  }
+  .emoji-content-img-other {
+    width: 100px;
+    height: 100px;
+  }
+  /*底部类别  */
+  .emoji-album {
+    width: 100%;
+    height: 70px;
+    border: 2px solid #999;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  .emoji-album-left {
+    height: 100%;
+  }
+  .emoji-album-left-img {
+    width:70px;
+    height:100%;
+    padding:8px 10px;
+    box-sizing:border-box;
+    border-right:2px soild #999
+  }
+  .emoji-send {
+    width: 80px;
+    height: 100%;
+    line-height:70px;
+    background-color: #0091e4;
+    text-align: center;
+    color: #fff;
+  }
+  .album-active {
+    background-color: #aaa;
+  }
+</style>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "店铺分类",
+  "titleNView": false,
+  "usingComponents": {
+    "load-more": "/components/uni-load-more"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "签到记录",
+  "onReachBottomDistance": 100,
+  "usingComponents": {
+    "mescroll-uni": "/node-modules/_mescroll-uni@1.1.8@mescroll-uni/mescroll-uni"
+  }
+}

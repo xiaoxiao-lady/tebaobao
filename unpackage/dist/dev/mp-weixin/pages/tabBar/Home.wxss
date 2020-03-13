@@ -1,0 +1,32 @@
+.type-fliter {
+  position: relative!important;
+}
+.home-header {
+  position: relative;
+  width: 100%;
+  margin-bottom: 44rpx;
+}
+.home-header > image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 260rpx;
+}
+.home-header .swip_banner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 22rpx;
+}
+.home-header .swip_banner swiper {
+  height: 328rpx;
+}
+.home-header .swip_banner swiper image {
+  display: block;
+  width: 702rpx;
+  height: 328rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+}
+

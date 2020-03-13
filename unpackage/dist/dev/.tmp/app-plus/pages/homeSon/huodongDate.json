@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "活动详情",
+  "usingComponents": {
+    "load-more": "/components/uni-load-more",
+    "uni-countdown": "/components/uni-countdown",
+    "uni-popup": "/components/uni-popup"
+  }
+}

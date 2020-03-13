@@ -1,0 +1,31 @@
+{
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#70b6ef",
+  "titleNView": {
+    "buttons": [
+      {
+        "float": "left",
+        "fontSrc": "/static/fonts/iconfont.ttf",
+        "text": ""
+      },
+      {
+        "float": "right",
+        "fontSrc": "/static/fonts/iconfont.ttf",
+        "text": ""
+      }
+    ],
+    "searchInput": {
+      "backgroundColor": "#fff",
+      "placeholderColor": "#999",
+      "placeholder": "请输入关键字搜素",
+      "disabled": true,
+      "borderRadius": "15px"
+    }
+  },
+  "usingComponents": {
+    "load-more": "/components/uni-load-more",
+    "uni-countdown": "/components/uni-countdown"
+  }
+}

@@ -1,0 +1,27 @@
+
+.uni-mask {
+	height:100vh;
+	position: fixed;
+	z-index: 9998;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, .3);
+}
+.uni-popup {
+	position: absolute;
+	z-index: 9999;
+	background-color: transparent;
+	box-shadow: 0 0 30rpx rgba(0, 0, 0, .1);
+}
+.uni-popup-bottom {
+	background-color: #fff;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
+

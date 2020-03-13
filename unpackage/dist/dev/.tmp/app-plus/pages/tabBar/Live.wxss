@@ -1,0 +1,25 @@
+
+.live-title__title {
+  font-size: 32rpx;
+  text-align: center;
+}
+.live-ranklist__item .disable {
+  right: 0!important;
+  left: inherit!important;
+  width: 80rpx!important;
+  background: transparent!important;
+  color: #fff;
+}
+.live-ranklist__item .active {
+  right: 0!important;
+  left: inherit!important;
+  width: 80rpx!important;
+  background: #ff7d23!important;
+  border-color: #ff7d23;
+}
+.live-itemlist__item--header  .active {
+  background: #ff7d23!important;
+  color: #fff!important;
+  border-color: #ff7d23;
+}
+

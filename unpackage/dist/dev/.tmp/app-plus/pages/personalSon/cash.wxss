@@ -1,0 +1,22 @@
+
+.settled {
+    background-color: transparent!important;
+}
+.btn-text {
+    text-align:center;
+    margin-top:17rpx;
+    font-size: 26rpx;
+    color: #999;
+}
+.withdrawable {
+    position: relative;
+}
+.settess {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    font-size: 26rpx;
+}
+

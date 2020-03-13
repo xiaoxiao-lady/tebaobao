@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "flyio": "^0.6.14",
+    "js-md5": "^0.7.3",
+    "mescroll-uni": "^1.0.0",
+    "videojs-contrib-hls": "^5.12.2",
+    "vue-video-player": "^5.0.2",
+    "weex-ui": "^0.6.11"
+  }
+}

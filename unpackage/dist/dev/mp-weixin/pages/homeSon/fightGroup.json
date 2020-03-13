@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "拼团中",
+  "usingComponents": {
+    "uni-countdown": "/components/uni-countdown"
+  }
+}

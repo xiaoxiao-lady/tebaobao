@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "搜索筛选",
+  "titleNView": false,
+  "usingComponents": {
+    "load-more": "/components/uni-load-more",
+    "uni-drawer": "/components/uni-drawer"
+  }
+}

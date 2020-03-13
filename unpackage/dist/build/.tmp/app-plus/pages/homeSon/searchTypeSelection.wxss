@@ -1,0 +1,45 @@
+
+page {
+	background: #f4f4f4;
+}
+.money_al {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+}
+.over {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    
+    -webkit-box-align: center;
+    
+    -webkit-align-items: center;
+    
+            align-items: center;
+}
+.over ._i {
+	color: #999;
+}
+.ac-color {
+	color: #FA3F3F!important;
+}
+.index_class, page {
+	height: 100%;
+}
+.to-tltle {
+	padding:0!important;
+	margin:0!important;
+}
+.status {
+	background-color:red!important;
+	position: relative!important;
+}
+

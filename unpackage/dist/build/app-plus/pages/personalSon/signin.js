@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"al { display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; justify-content: space-between }\n",],undefined,{path:"./pages/personalSon/signin.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/personalSon/signin.wxml') } }));

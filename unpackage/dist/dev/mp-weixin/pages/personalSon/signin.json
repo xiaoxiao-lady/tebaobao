@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "积分签到",
+  "usingComponents": {
+    "grace-date": "/graceUI/components/graceDate"
+  }
+}

@@ -1,0 +1,13 @@
+.grace-footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  bottom: 0px;
+}
+.mescroll-empty .empty-icon {
+  width: 75%!important;
+}
+

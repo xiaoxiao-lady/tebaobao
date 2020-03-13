@@ -1,0 +1,8 @@
+
+.sett-status {
+    padding-left: 30rpx;
+    margin-top: 30rpx;
+    color: #999;
+    font-size: 26rpx;
+}
+

@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"mobile{ text-align: center; padding: ",[0,40],"; }\n",],undefined,{path:"./pages/Kefu/Kefu.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/Kefu/Kefu.wxml') } }));

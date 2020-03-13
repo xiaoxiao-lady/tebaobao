@@ -1,0 +1,10 @@
+
+page {
+    background: #fff;
+}
+.header-filter {
+    width: 100%;
+    position: fixed!important;
+    padding: 0 170rpx!important;
+}
+

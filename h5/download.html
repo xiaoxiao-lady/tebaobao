@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>红豆恋-下载</title>
+  <link href="./index.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_604614_801vycf9m6l84cxr.css">
+  <script>! function (n) {
+    var e = n.document,
+      t = e.documentElement,
+      i = 750,
+      d = i / 100,
+      o = "orientationchange" in n ? "orientationchange" : "resize",
+      a = function () {
+        var n = t.clientWidth || 320;
+        n > 750 && (n = 750);
+        t.style.fontSize = n / d + "px"
+      };
+    e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
+  }(window);</script>
+</head>
+<body class="download-body">
+  <div class="download-title">
+    <img src="./../images/logo.png">
+    <div class="download-title__right">
+      <h2>红豆恋APP</h2>
+      <div class="bottom">
+        <span>相亲</span>
+        <span>导师</span>
+        <span>周易</span>
+      </div>
+    </div>
+  </div>
+  <div class="download-content">
+    <h2>打造单身男女信息至诚平台</h2>
+    <p>总有一个人</p>
+    <p>会让你心甘情愿的付出所有</p>
+    <p>让我们一起把TA揪出来</p>
+  </div>
+  <div class="download">
+    <div class="download-btn">
+      <a class="item">
+        <img src="./../images/android.png">
+        <span>安卓版下载</span>
+      </a>
+      <a class="item">
+        <img src="./../images/ios.png">
+        <span>苹果版下载</span>
+      </a>
+    </div>
+  </div>
+  <img class="hands" src="./../images/hands.png">
+  <script type="text/javascript" src="./fastclick.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./index.js" charset="utf-8"></script>
+  <script>
+    $(document).ready(function() {
+      $.ajax({
+        url: 'https://www.hongdoulian.net/index.php/getDownloadurl',
+        type: 'post',
+        data: {
+        },
+        dataType: 'JSON',
+        success: function(res) {
+          if (res.code === 1) {
+            $(".download-btn").children("a").eq(0).attr("href", res.data.androidurl);
+            $(".download-btn").children("a").eq(1).attr("href", res.data.iosurl);
+          } else {
+            new Dialog({
+              type: 'alert',
+              msg: res.msg
+            })
+          }
+        },
+
+        error: function(error) {
+          load.close()
+          new Dialog({
+            type: 'showMsg',
+            msg: '网络错误'
+          })
+        }
+      })
+    })
+  </script>
+</body>
+</html>

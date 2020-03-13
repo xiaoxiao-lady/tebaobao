@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "全部订单",
+  "onReachBottomDistance": 100,
+  "bounce": "none",
+  "usingComponents": {
+    "popup-layer": "/components/popup-layer",
+    "uni-popup": "/components/uni-popup",
+    "txpwd": "/components/txpwd",
+    "mescroll-uni": "/node-modules/mescroll-uni/mescroll-uni"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="wrap _div data-v-fc0f6ef6"><block wx:if="{{isShow}}"><video id="myVideo" src="{{src}}" autoplay="{{true}}" controls="{{false}}" data-event-opts="{{[['error',[['onErrorHandle',['$event']]]]]}}" binderror="__e" class="data-v-fc0f6ef6"></video></block></view>

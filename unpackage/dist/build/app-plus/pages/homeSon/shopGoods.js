@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"header-filter { position: fixed!important; width: 100%; z-index: 999; }\n",],undefined,{path:"./pages/homeSon/shopGoods.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/homeSon/shopGoods.wxml') } }));

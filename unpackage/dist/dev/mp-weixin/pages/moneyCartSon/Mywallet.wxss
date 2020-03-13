@@ -1,0 +1,8 @@
+
+page,.index_class{
+    height: 100%;
+}
+.settled {
+    background-color: transparent!important;
+}
+

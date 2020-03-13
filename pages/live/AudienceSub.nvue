@@ -1,0 +1,1209 @@
+<template>
+  <div>
+    <div class="main">
+      <div class="header">
+        <div class="header-left">
+          <image class="avatar" :src="userInfo.headimgurl"></image>
+          <div class="header-left__middle">
+            <text class="header-left__middle--top" style="color: #fff">直播</text>
+            <text class="header-left__middle--bottom">2314</text>
+          </div>
+          <div class="header-left__right ">
+            <text class="follow" @click="follow">{{ userInfo.is_follow ===  1 ? '已关注': '未关注' }}</text>
+          </div>
+        </div>
+        <div class="header-middle">
+          <scroller class="header-middle__scroller" scroll-direction="horizontal">
+            <image class="user-avatar" :src="item" :ref="'avatar-' + index" v-for="(item, index) in userAvatarList" :key="index"></image>
+          </scroller>
+        </div>
+        <image class="close" @click="onClose" src="../../static/images/live/close.png"></image>
+      </div>
+      <div class="info">
+        <div class="info-left" @click="toRankList">
+          <div class="info-left__left">
+            <text class="name">红豆:</text>
+            <text class="num">{{ userInfo.bicount }}</text>
+          </div>
+          <div class="info-left__right">
+            <text class="name">总订单:</text>
+            <text class="num">{{ userInfo.ordercount }}</text>
+          </div>
+          <image class="info-left__img" src="../../static/images/live/right.png"></image>
+        </div>
+        <div class="info-right" @click="toShop(userInfo.shop_id)">
+          <text class="info-right__top">进入店铺</text>
+          <text class="info-right__bottom">ID{{ userInfo.shop_id }}</text>
+        </div>
+      </div>
+      <div class="tip">
+        <scroller class="tip-scroller">
+          <div class="tip-content">
+            <text class="text">{{ userInfo.notice }}</text>
+          </div>
+          <div v-for="(item, index) in msgList"  :key="index">
+            <text class="tip-scroller__user">{{ item }}</text>
+            <div :ref="'msg-' + index"></div>
+          </div>
+        </scroller>
+      </div>
+      <div class="input-wrap" v-if="isInputShow">
+        <input class="input" ref="input" type="text" @input="onInput" placeholder="请发表你的看法" return-key-type="发送" @blur="isInputShow = false">
+        <text class="send-btn" @click="send">发送</text>
+      </div>
+      <div class="footer">
+        <image class="chat" @click="showInput" src="../../static/images/live/chat.png"></image>
+        <image class="order" @click="isOrderShow = true" src="../../static/images/live/order.png"></image>
+        <image class="goods" @click="isGoodsShow = true" src="../../static/images/live/goods.png"></image>
+        <image class="gift" @click="isGiftsShow = true" src="../../static/images/live/gift.png"></image>
+        <image class="share" @click="onShare" src="../../static/images/live/share.png"></image>
+      </div>
+    </div>
+    <wxc-popup popup-color="#fff"
+      :show="isOrderShow"
+      @wxcPopupOverlayClicked="popupOverlayBottomClick"
+      pos="bottom"
+      height="620">
+      <div class="popup-wrap">
+        <div class="popup-title">
+          <text class="title">未支付订单</text>
+          <wxc-icon class="popup-close" name="close" @wxcIconClicked="popupOverlayBottomClick"></wxc-icon>
+        </div>
+        <list class="goods-list">
+          <cell class="cell-item" v-for="(item, index) in orderList" :key="index" @click="toOrder">
+            <div class="cell-item__left">
+              <image class="cell-item__img" :src="item.thumb_url">
+            </div>
+            <div class="cell-item__middle">
+              <text class="cell-goods__name">{{ item.goods_name }}</text>
+              <div class="cell-goods__middle">
+                <text class="cell-goods__money ">¥{{ item.price }}</text>
+                <text class="cell-goods__status">付款</text>
+              </div>
+              <div class="cell-goods__bottom">
+                <text class="cell-goods__bottom--name">{{ item.shop_name }}</text>
+              </div>
+            </div>
+            <text class="cell-item__btn">立即付款</text>
+          </cell>
+          <text v-if="!orderList.length" class="no-more">没有更多</text>
+        </list>
+      </div>
+    </wxc-popup>
+    <wxc-popup popup-color="#fff"
+      :show="isGoodsShow"
+      @wxcPopupOverlayClicked="popupOverlayBottomClick"
+      pos="bottom"
+      height="620">
+      <div class="popup-wrap">
+        <div class="popup-title">
+          <text class="title">直播商品</text>
+          <wxc-icon class="popup-close" name="close" @wxcIconClicked="popupOverlayBottomClick"></wxc-icon>
+        </div>
+        <list class="goods-list" @loadmore="getMoreGoods" :loadmoreoffset="10">
+          <cell class="cell-item" v-for="(item, index) in goodsList" :key="index" @click="toGoodsDetali(item.id)">
+            <div class="cell-item__left">
+              <text class="rank">{{ index + 1 }}</text>
+              <image class="cell-item__img" :src="item.thumb_url">
+            </div>
+            <div class="cell-item__middle">
+              <text class="cell-goods__name">{{ item.goods_name }}</text>
+              <div class="cell-goods__middle">
+                <text class="cell-goods__money ">¥ {{ item.zs_price }}</text>
+              </div>
+            </div>
+            <text class="cell-item__btn">立即付款</text>
+          </cell>
+          <text v-if="!goodsList.length" class="no-more">没有更多</text>
+        </list>
+      </div>
+    </wxc-popup>
+    <wxc-popup popup-color="rgba(0,0,0,0.8)"
+      :show="isGiftsShow"
+      :overlay-cfg="{opacity: 0}"
+      @wxcPopupOverlayClicked="popupOverlayBottomClick"
+      pos="bottom"
+      height="510">
+      <div class="gift-list">
+        <div class="gift-item" v-for="(item, index) in giftsList" :key="index" @click="sendGift(item.id)">
+          <image class="gift-item__image" :src="item.pic"></image>
+          <text class="gift-item__text">{{ item.point }} {{ item.description }}</text>
+        </div>
+      </div>
+      <div class="gift-footer">
+        <div class="gift-footer__left">
+          <image class="gift-footer__left--img" src="../../static/images/live/money.png"></image>
+          <text class="gift-footer__left--money">余额：{{ walletPrice }}</text>
+          <wxc-icon name="more" class="gift-footer__more"></wxc-icon>
+        </div>
+        <text class="gift-footer__right">赠送</text>
+      </div>
+    </wxc-popup>
+    <wxc-mask height="800"
+              width="702"
+              border-radius="0"
+              duration="200"
+              mask-bg-color="transparent"
+              :has-animation="true"
+              :has-overlay="false"
+              :show-close="false"
+              :show="isShowGift"
+              @wxcMaskSetHidden="wxcMaskSetHidden">
+      <div class="gift-content">
+        <image class="giftimg" :src="giftImgList[0]">
+      </div>
+    </wxc-mask>
+  </div>
+</template>
+
+<script>
+
+  import { WxcPopup, WxcIcon, wxcLoading, WxcPartLoading, WxcMask } from 'weex-ui'
+  import md5 from 'js-md5'
+  const stream = weex.requireModule('stream') || {}
+  const modal = weex.requireModule('modal') || {}
+  var ws = weex.requireModule('webSocket')
+  const dom = weex.requireModule('dom')
+
+  export default {
+    data () {
+      return {
+        src: '',
+        value: '',
+        text: '2',
+        goodsPage: 1,
+        height: WXEnvironment.deviceHeight,
+        isGoodsShow: false,
+        isOrderShow: false,
+        isGiftsShow: false,
+        isInputShow: false,
+        shopid: '',
+        page: 1,
+        token: '',
+        goodsList: [],
+        orderList: [],
+        giftsList: [],
+        userInfo: {},
+        msgList: [],
+        userAvatarList: [],
+        walletPrice: 0,
+        isShowGift: false,
+        giftImgList: [],
+		client_id:'',
+      }
+    },
+
+    components: {
+      WxcPopup,
+      WxcIcon,
+      wxcLoading,
+      WxcMask,
+      WxcPartLoading 
+    },
+
+    mounted() {
+      setTimeout(() => {
+        uni.getStorage({
+          key: 'pullurl',
+          success: res => {
+            this.src = res.data
+          }
+        })
+        uni.getStorage({
+          key: 'userInfo',
+          success: res => {
+            this.walletPrice = JSON.parse(res.data).wallet_price
+          }
+        })
+        uni.getStorage({
+          key: 'shopid',
+          success: res => {
+            const shop_id = res.data
+            this.shopid = res.data
+            uni.getStorage({
+              key: 'token',
+              success: res => {
+                this.token = res.data
+                uni.request({
+                  url: `https://nycs.maitexun.cn/apicloud/Alive/aliveinformation`,
+                  method: 'post',
+                  data: {
+                    shop_id: shop_id,
+                    api_token:　md5(`apicloud/Alive/aliveinformation${this.formartDate()}yiling6670238160ravntyoneapp7926`),
+                    token: res.data,
+                    client_id: 1
+                  },
+                  success: res => {
+                    var _this = this
+                    this.pageShow = true
+                    this.userInfo = res.data.data
+                    console.log(JSON.stringify(res.data.data))
+                    this.initWebsocket(this.token, res.data.data.room)
+                  } 
+                })
+                uni.request({
+                  url: `https://nycs.maitexun.cn/apicloud/Alive/alivegoods`,
+                  method: 'post',
+                  data: {
+                    shop_id: shop_id,
+                    api_token: md5(`apicloud/Alive/alivegoods${this.formartDate()}yiling6670238160ravntyoneapp7926`),
+                    token: res.data,
+                    client_id: 1
+                  },
+                  success: res => {
+                    this.goodsList = res.data.data.data
+                  } 
+                })
+                
+                uni.request({
+                  url: `https://nycs.maitexun.cn/apicloud/Alive/alivegifts`,
+                  method: 'post',
+                  data: {
+                    api_token:　md5(`apicloud/Alive/alivegifts${this.formartDate()}yiling6670238160ravntyoneapp7926`),
+                    token: res.data,
+                    client_id: 1
+                  },
+                  success: res => {
+                    this.giftsList = res.data.data
+                  } 
+                })
+                uni.request({
+                  url: `https://nycs.maitexun.cn/apicloud/MemberOrder/index`,
+                  method: 'post',
+                  data: {
+                    api_token:　md5(`apicloud/MemberOrder/index${this.formartDate()}yiling6670238160ravntyoneapp7926`),
+                    token: res.data,
+                    client_id: 1,
+                    filter: 1,
+                    page: 1
+                  },
+                  success: res => {
+                    res.data.data.forEach(item => {
+                      item.goodsinfo.forEach(i => {
+                        i.shop_name = item.shop_name
+                        this.orderList.push(i)
+                      })
+                    })
+                  } 
+                })
+              }
+            })
+          }
+        })
+      }, 300)
+    },
+ destroyed () {
+      clearInterval(timer)
+      timer = null
+      ws.close()
+    },
+
+    methods:{
+		initWebsocket (token, room) {
+		  ws.WebSocket('ws://nycs.maitexun.cn:2001','')
+		  ws.onmessage(res => {
+		    let data = res.data
+		    if (WXEnvironment.platform === 'iOS') {
+		      data = JSON.parse(res.data)
+		    }
+		    console.log(111, data)
+		if (data.type === 'init') {
+		  ws.send(JSON.stringify({
+		    type: 'bindalive_id',
+		    id: token,
+		    room: room,
+		    client_id: data.data.client_id
+		  }))
+		this.client_id = data.data.client_id
+		}
+		
+		if (data.type === 'alivesay') {
+		  this.msgList.push(data.msg)
+		  this.$nextTick(() => {
+		    setTimeout(() => {
+		      this.go2bottom()
+		    }, 50);
+		  })
+		}
+		if (data.type === 'notice') {
+		  this.msgList.push(data.msg)
+		  this.userAvatarList.unshift(data.data.headimgurl)
+		  this.$nextTick(() => {
+		    setTimeout(() => {
+		      this.go2bottom()
+		    }, 50);
+		  })
+		}
+		if (data.type === 'alivegifts') {
+		  this.giftImgList.push(data.data.picgif)
+		
+		  this.$nextTick(() => {
+		    this.isShowGift = true
+		    setTimeout(() => {
+		      this.giftImgList.shift()
+		      this.isShowGift = false
+		      // this.$nextTick(() => {
+		      //   if (this.giftImgList.length) {
+		
+		      //   }
+		      // })
+		    }, 2000)
+		  })
+		}
+		  })
+		  ws.onopen(() => {
+		    console.log('socket is open')
+		    setTimeout(() => {
+		      timer = setInterval(() => {
+		        ws.send(JSON.stringify({
+		          type: 'ping',
+		          id: token
+		        }))
+		      }, 9000)
+		    }, 3000)
+		  })
+		  ws.onclose(function(event) {
+		    clearInterval(timer)
+		    timer = null
+		    ws.WebSocket('ws://nycs.maitexun.cn:2001','')
+		    console.log('nvue-onclose');
+		  })
+		  ws.onerror(function(event) {
+		    clearInterval(timer)
+		    timer = null
+		    ws.WebSocket('ws://nycs.maitexun.cn:2001','')
+		    console.log(JSON.stringify(event));
+		  })
+		},
+		
+	  
+      initWebsocket2 (token, room) {
+        ws.WebSocket('ws://nycs.maitexun.cn:2001','')
+        ws.onmessage(res => {
+          let data = res.data
+          if (WXEnvironment.platform === 'iOS') {
+            data = JSON.parse(res.data)
+          }
+		   if (WXEnvironment.platform === 'Android') {
+					data = JSON.parse(res.data)
+				  }
+
+          if (data.type === 'init') {
+            ws.send(JSON.stringify({
+              type: 'bindalive_id',
+              id: token,
+              room: room,
+              client_id: data.data.client_id
+            }))
+		  this.client_id = data.data.client_id
+          }
+
+          if (data.type === 'alivesay') {
+            this.msgList.push(data.msg)
+            this.$nextTick(() => {
+              setTimeout(() => {
+                this.go2bottom()
+              }, 50);
+            })
+          }
+          if (data.type === 'notice') {
+            this.msgList.push(data.msg)
+            this.userAvatarList.unshift(data.data.headimgurl)
+            this.$nextTick(() => {
+              setTimeout(() => {
+                this.go2bottom()
+              }, 50);
+            })
+          }
+          if (data.type === 'alivegifts') {
+            this.giftImgList.push(data.data.picgif)
+
+            this.$nextTick(() => {
+              this.isShowGift = true
+              setTimeout(() => {
+                this.giftImgList.shift()
+                this.isShowGift = false
+                // this.$nextTick(() => {
+                //   if (this.giftImgList.length) {
+
+                //   }
+                // })
+              }, 2000)
+            })
+          }
+        })
+        ws.onopen(() => {
+          console.log('socket is open')
+          // ws.send(JSON.stringify({
+          //   type: 'ping',
+          //   id: token
+          // }))
+        })
+        ws.onclose(function(event) {
+          console.log('nvue-onclose');
+        })
+        ws.onerror(function(event) {
+          console.log('onerror');
+        })
+        // ws.onmessage  = function() {
+        //   console.log(1)
+        // }
+      },
+      
+      getMoreGoods () {
+        uni.request({
+          url: `https://nycs.maitexun.cn/apicloud/Alive/alivegoods`,
+          method: 'post',
+          data: {
+            shop_id: this.shopid,
+            api_token: md5(`apicloud/Alive/alivegoods${this.formartDate()}yiling6670238160ravntyoneapp7926`),
+            token: this.token,
+            client_id: 1,
+            page: this.page + 1
+          },
+          success: res => {
+            if (res.data.data.length) {
+              this.this.goodsList = this.goodsList.concat(res.data.data)
+              this.page = this.page + 1
+            }
+          } 
+        })
+      },
+
+      // 关注
+      follow () {
+        if (this.userInfo.is_follow === 0) {
+          uni.request({
+            url: `https://nycs.maitexun.cn/apicloud/CollShops/coll`,
+            method: 'post',
+            data: {
+              shop_id: this.shopid,
+              api_token: md5(`apicloud/CollShops/coll${this.formartDate()}yiling6670238160ravntyoneapp7926`),
+              token: this.token,
+              client_id: 1
+            },
+            success: res => {
+              if (res.data.status === 200) {
+                modal.toast({
+                  message: '关注成功',
+                  duration: 0.3
+                })
+                this.userInfo.is_follow = 1
+              }
+            },
+            fail: err => {
+              modal.toast({
+                message: '网络错误',
+                duration: 0.3
+              })
+            }
+          })
+        } else {
+          uni.request({
+            url: `https://nycs.maitexun.cn/apicloud/CollShops/cancelcoll`,
+            method: 'post',
+            data: {
+              shop_id: this.shopid,
+              api_token: md5(`apicloud/CollShops/cancelcoll${this.formartDate()}yiling6670238160ravntyoneapp7926`),
+              token: this.token,
+              client_id: 1
+            },
+            success: res => {
+              if (res.data.status === 200) {
+                modal.toast({
+                  message: '取消关注',
+                  duration: 0.3
+                })
+                this.userInfo.is_follow = 0
+              }
+            },
+            fail: err => {
+              modal.toast({
+                message: '网络错误',
+                duration: 0.3
+              })
+            }
+          })
+        }
+      },
+
+      // 跳到店铺详情页
+      toShop (shop_id) {
+        uni.navigateTo({
+          url: '/pages/homeSon/storeDetails?shop_id=' + shop_id,
+          animationType: 'slide-in-right',
+          animationDuration: 300
+        })
+      },
+
+      // 跳到商品详情页
+      toGoodsDetali (goodsid) {
+        uni.navigateTo({
+          url: '/pages/homeSon/shop_details?id=' + goodsid,
+          animationType: 'slide-in-right',
+          animationDuration: 300
+        })
+      },
+ 
+      onInput (e) {
+        this.value = e.value
+      },
+      send (e) {
+        if (!this.value) {
+          modal.toast({
+            message: '不能为空',
+            duration: 0.3
+          })
+          return false
+        }
+        ws.send(JSON.stringify({
+          type: 'alivesay',
+          msgtype: 'text',
+          id: this.token,
+          room: this.userInfo.room,
+          msg: this.value,
+		  client_id: this.client_id
+        }))
+        this.$refs.input.blur()
+        this.isInputShow = false
+        this.value = ''
+		console.log(JSON.stringify({
+		  type: 'alivesay',
+		  msgtype: 'text',
+		  id: this.token,
+		  room: this.userInfo.room,
+		  msg: this.value,
+		  client_id: this.client_id
+		}))
+		uni.hideKeyboard()
+      },
+	  
+	  
+      go2bottom () {
+        const indicatorId = 'msg-' + (this.msgList.length - 1);
+        const indicator = this.$refs[indicatorId];
+        
+        // 滚动到上一条消息的底部
+        if (this.msgList.length > 4) {
+          const el = indicator;
+          dom.scrollToElement(el[0], {offset: -300});
+        }
+      },
+      toRankList () {
+        uni.navigateTo({
+          url: '/pages/live/RankList?shopid=' + this.shopid
+        })
+      },
+
+      sendGift (id) {
+        ws.send(JSON.stringify({
+          type: 'alivegifts',
+          id: this.token,
+          room: this.userInfo.room,
+          giftid: id,
+          shop_id: this.shopid
+        }))
+
+        this.isGiftsShow = false
+      },
+      formartDate () {
+        const date = new Date()
+        const year = date.getFullYear()
+        const month = parseInt(date.getMonth()) + 1 > 9 ? parseInt(date.getMonth()) + 1 : '0' + (parseInt(date.getMonth()) + 1)
+        const day = date.getDate() > 9 ? date.getDate() : '0' + date.getDate()
+
+        return year + '-' + month + '-' + day
+      },
+
+      showInput () {
+        this.isInputShow = true
+
+        setTimeout(() => {
+          this.$refs.input.focus()
+        }, 80);
+      },
+
+      linkTo (url) {
+        uni.navigateTo({
+          url,
+          animationType: 'pop-in'
+        })
+      },
+
+      onstart (event) {
+        this.state = 'onstart'
+      },
+      onpause (event) {
+        this.state = 'onpause'
+      },
+      onfinish (event) {
+        this.state = 'onfinish'
+      },
+      onfail (event) {
+        this.state = 'onfail'
+      },
+
+      popupOverlayBottomClick () {
+        this.isGoodsShow = false
+        this.isOrderShow = false
+        this.isGiftsShow = false
+      },
+
+      onClose () {
+        ws.close();
+        uni.navigateBack({
+          delta: 1
+        })
+      },
+      toOrder () {
+        uni.navigateTo({
+          url: '/pages/homeSon/allOrder',
+          animationType: 'pop-in'
+        })
+      },
+
+      onShare () {
+        this.share({
+          summary: `赶快下载吧`,
+          href: `https://nycs.maitexun.cn/index/apppage/find?id=29`,
+          title: '欢迎体验WoSmart',
+          callBack: () => {
+
+          }
+        })
+      },
+      
+      share (params) {
+        uni.showActionSheet({
+          itemList: ['微信分享', '微信朋友圈分享', 'QQ分享'],
+          success: (res) => {
+            const index = res.tapIndex
+            const provider =  index === 2 ? 'qq' : 'weixin' 
+            let shareData = {}
+
+            if (index === 2) {
+              shareData = {
+                provider: provider,
+                // ...params,
+                type: 1,
+                title: params.href,
+                href: params.href
+              }
+            } else if (index === 0) {
+              shareData = {
+                provider: provider,
+                scene: 'WXSceneSession',
+                ...params,
+              }
+            } else {
+              shareData = {
+                provider: provider,
+                scene: 'WXSenceTimeline',
+                ...params,
+              }
+            }
+            uni.share({
+              type: 0,
+              ...shareData,
+              imageUrl: 'https://nycs.maitexun.cn/uploads/logo.png',
+              success: () => {
+                // showToast('分享成功')
+                uni.showToast({
+                  title: '分享成功',
+                  duration: 2000,
+                  icon: 'none'
+                })
+                params.callBack()
+              },
+              fail: (err) => {
+                console.log(JSON.stringify(err))
+                // showToast('分享失败')
+                uni.showToast({
+                  title: '分享失败',
+                  duration: 2000,
+                  icon: 'none'
+                })
+              }
+            })
+          },
+          fail: () => {
+          }
+        })
+      }
+    }
+  }
+</script>
+
+<style scoped>
+.gift-footer__more {
+  color: #fff;
+}
+  .video {
+    flex: 1;
+    width: 750px;
+  }
+  .main {
+    width: 750px;
+    flex: 1;
+    color: #fff;
+    background-color: transparent; 
+  }
+
+  .header {
+    flex-direction: row;
+    align-items: center;
+    padding: 56px 24px 30px 24px;
+  }
+
+  .header-left {
+    flex-direction: row;
+    align-items: center;
+    width: 245px;
+    height: 63px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 32px;
+  }
+  .avatar {
+    width: 63px;
+    height: 63px;
+    margin-right: 20px; 
+    border-radius: 63px;
+  }
+  .header-left__middle {
+    margin-right: 24px;
+  }
+  .header-left__middle--top {
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .header-left__middle--bottom {
+    display: block;
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .header-middle {
+    flex-direction: row;
+  }
+
+  .header-middle__scroller {
+    flex-direction: row;
+  }
+
+  .header-left__right {
+    justify-content: center;
+    align-items: center;
+    width: 87px;
+    height: 55px;
+    line-height: 55px;
+    background-color: rgba(250,63,63,1);
+    border-radius: 32px;
+    text-align: center;
+  }
+
+  .follow {
+    color: #fff;
+    font-size: 26px;
+  }
+
+  .header-middle {
+    flex: 1;
+    margin: 0 49px 0 42px;
+  }
+
+  .user-avatar {
+    width: 63px;
+    height: 63px;
+    border-radius: 63px;
+    margin-right: 16px;
+  }
+
+  .close {
+    width: 65px;
+    height: 65px;
+  }
+
+  .info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .info-left {
+    flex-direction: row;
+    align-items: center;
+    width :425px;
+    height: 47px;
+    padding: 0 19px 0 24px;
+    background-color: rgba(0,0,0,0.5);
+    border-top-right-radius: 27px;
+    border-bottom-right-radius: 27px;
+  }
+
+  .info-left__left {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .info-left__right {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  .name {
+    color: #FA3A70;
+    font-size: 24px;
+  }
+
+  .num {
+    color: #fff;
+    font-size: 24px;
+  }
+
+  .info-left__img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .info-right {
+    width: 174px;
+    height: 96px;
+    border-radius: 6px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(255,255,255,1);
+    text-align: center;
+  }
+
+  .info-right__top {
+    display: block;
+    width: 174px;
+    height: 47px;
+    line-height: 47px;
+    background-color: rgba(255,255,255,1);
+    border-radius: 6px 6px 0px 0px;
+    font-size: 28px;
+    text-align: center;
+    color: #FA3F3F;
+  }
+
+  .info-right__bottom {
+    display: block;
+    width: 174px;
+    height: 49px;
+    line-height: 49px;
+    border-radius:6px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .tip {
+    position: fixed;
+    bottom: 240px;
+    left: 24px;
+  }
+
+  .tip-content {
+    width: 500px;
+    height: 190px;
+    padding: 15px 43px 12px 14px;
+    margin-bottom: 28px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+  }
+
+  .tip-scroller {
+    height: 420px;
+  }
+
+  .text {
+    font-size: 28px;
+    color: #FCCB59;
+    height: 280px;
+    line-height: 40px;
+  }
+  .tip-scroller__user {
+    display: block;
+    width: 420px;
+    height: 47px;
+    line-height: 47px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    text-overflow: ellipsis;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 27px;
+    color: #fff;
+    font-size: 24px;
+  }
+
+  .input-wrap {
+    position: fixed;
+    bottom: 200px;
+    z-index: 11;
+    width: 750px;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 24px;
+  }
+
+  .input {
+    flex: 1;
+    height: 76px;
+    padding: 0 38px;
+    background-color: #fff;
+    border-radius: 10px;
+    color: #333;
+    font-size: 28px;
+  }
+
+  .send-btn {
+    width:133px;
+    height:76px;
+    margin-left: 24px;
+    line-height: 76px;
+    font-size: 30px;
+    color:#fff;
+    text-align: center;
+    background-color: #FB6161;
+    border-radius: 10px;
+  }
+
+  .footer {
+    position: fixed;
+    align-items: center;
+    bottom: 30px;
+    padding: 0 44px 0 48px;
+    flex-direction: row;
+  }
+
+  .chat, .order, .gift, .share {
+    width: 78px;
+    height: 78px;
+  }
+
+  .goods {
+    width: 116px;
+    height: 98px;
+    margin: 0 70px;
+  }
+
+  .chat {
+    margin-right: 39px;
+  }
+
+  .gift {
+    margin-right: 49px;
+  }
+
+  .popup-wrap {
+    height: 620px;
+  }
+
+  .popup-title {
+    position: relative;
+    width: 750px;
+    height: 104px;
+    align-items: center;
+    justify-content: center;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #eee;
+  }
+
+  .title {
+    color: #333;
+    font-size: 30px;
+  }
+
+  .popup-close {
+    position: absolute;
+    top: 50%;
+    right: 33px;
+    width: 42px;
+    height: 42px;
+    transform: translateY(-50%);
+  }
+
+  .goods-list {
+    width: 750px;
+    height: 514px;
+  }
+
+  .cell-item {
+    flex-direction: row;
+    align-items: center;
+    height: 204px;
+    padding: 0 23px 0 38px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #eee;
+  }
+
+  .cell-item__left {
+    flex-direction: row;
+    align-items: center;
+    margin-right: 24px;
+  }
+
+  .rank {
+    color: #333;
+    font-size: 30px;
+    margin-right: 30px;
+  }
+
+  .cell-item__img {
+    width: 144px;
+    height: 144px;
+    border-radius: 20px;
+  }
+
+  .cell-item__middle {
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  .cell-goods__name {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 42px;
+    text-overflow: ellipsis;
+    lines: 1;
+  }
+
+  .cell-goods__money {
+    color: #FA3F3F;
+    font-size: 34px;
+  }
+
+  .cell-item__btn {
+    width: 127px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    background-color: rgba(250,63,63,1);
+    border-radius: 22px;
+    color: #fff;
+    font-size: 24px;
+  }
+
+  .order-goods__name {
+    margin: 0!important;
+  }
+  .cell-goods__middle {
+    flex-direction: row;
+    align-items: center;
+    margin: 13px 0 11px 0;
+  }
+
+  .cell-goods__status {
+    font-size: 24px;
+    color: #999999;
+    margin-left: 7px;
+  }
+
+  .cell-goods__bottom {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .cell-goods__bottom--avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 45px;
+    margin-right: 18px;
+  }
+
+  .cell-goods__bottom--name {
+    color: #333;
+    font-size: 26px;
+  }
+
+  .gift-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 36px 0 0 0;
+    padding: 0 32px;
+  }
+
+  .gift-item {
+    width: 114px;
+    margin-bottom: 32px;
+    margin-right: 70px;
+    text-align: center;
+  }
+
+  .mr0 {
+    margin-right: 0!important;
+  }
+
+  .gift-item__image {
+    width: 114px;
+    height: 120px;
+  }
+
+  .gift-item__text {
+    margin-top: 17px;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .gift-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+
+  .gift-footer__left {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .gift-footer__left--img {
+    width: 38px;
+    height: 38px;
+    margin-right: 18px;
+  }
+
+  .gift-footer__left--money {
+    color: #fff;
+    font-size: 30px;
+    margin-right: 20px;
+  }
+
+  .gift-footer__right {
+    width: 114px;
+    height: 58px;
+    line-height: 58px;
+    text-align: center;
+    background-color: rgba(68,210,157,1);
+    border-radius: 42px;
+    color: #fff;
+    font-size: 30px;
+  }
+  .content {
+    background: transparent;
+  }
+  .no-more {
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    color: #999;
+    font-size: 30px;
+  }
+
+  .giftimg {
+    width: 400px;
+    height: 400px;
+  }
+
+  .gift-content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+  }
+</style>

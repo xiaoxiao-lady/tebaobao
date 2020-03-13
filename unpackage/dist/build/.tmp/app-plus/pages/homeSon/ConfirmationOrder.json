@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "确认订单",
+  "usingComponents": {
+    "popup-layer": "/components/popup-layer",
+    "uni-popup": "/components/uni-popup",
+    "txpwd": "/components/txpwd"
+  }
+}

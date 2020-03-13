@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"index_class { background-color: #fff; }\n",],undefined,{path:"./pages/personalSon/logistics.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/personalSon/logistics.wxml') } }));

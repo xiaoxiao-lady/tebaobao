@@ -1,0 +1,1 @@
+<view><view hidden="{{!(show)}}" class="uni-mask" style="{{'top:'+(offsetTop+'px')+';'}}" catchtouchmove="return" data-event-opts="{{[['tap',[['hide',['$event']]]]]}}" bindtap="__e"></view><view hidden="{{!(show)}}" class="{{['uni-popup','uni-popup-bottom']}}">{{''+msg+''}}<slot></slot></view></view>

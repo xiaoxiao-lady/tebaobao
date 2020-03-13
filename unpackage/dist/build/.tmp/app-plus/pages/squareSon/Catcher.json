@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "热门话题",
+  "titleNView": {
+    "type": "transparent"
+  },
+  "usingComponents": {
+    "load-more": "/components/uni-load-more"
+  }
+}

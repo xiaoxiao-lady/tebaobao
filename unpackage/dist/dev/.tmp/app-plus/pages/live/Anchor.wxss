@@ -1,0 +1,146 @@
+
+page {
+		height: 100%;
+}
+.content {
+    background: #000;
+    overflow: hidden;
+		height: 100%;
+}
+.butlist {
+    height: 140rpx;
+    position: absolute;
+    bottom: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    -webkit-justify-content: space-around;
+            justify-content: space-around;
+		box-sizing: border-box;
+}
+.buticon {
+    width: 120rpx;
+    color: #fff;
+    position: relative;
+    text-align: center;
+}
+.buticon image {
+    height: 64rpx;
+    width: 64rpx;
+}
+.buticon .mar10 {
+}
+.martp10 {
+    margin-top: 10rpx;
+}
+.give {
+    width: 90rpx;
+    height: 90rpx;
+    background: #f44336;
+    border-radius: 50%;
+    box-shadow: 0 0 22rpx 0 rgb(252, 94, 20);
+    position: absolute;
+    left: 15rpx;
+    top: 15rpx;
+    font-size: 44rpx;
+    line-height: 90rpx;
+}
+.givebegin {
+    width: 60rpx;
+    height: 60rpx;
+    background: #f44336;
+    border-radius: 20%;
+    box-shadow: 0 0 22rpx 0 rgb(252, 94, 20);
+    position: absolute;
+    left: 30rpx;
+    top: 30rpx;
+}
+.x_f {
+    /* border: 6upx solid #F44336; */
+    width: 120rpx;
+    height: 120rpx;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 28rpx 0 rgb(251, 99, 24);
+}
+
+  /* 产生动画（向外扩散变大）的圆圈  */
+.pulse {
+    width: 160rpx;
+    height: 160rpx;
+    position: absolute;
+    border: 12rpx solid #f44336;
+    border-radius: 100%;
+    z-index: 1;
+    opacity: 0;
+    -webkit-animation: warn 2s ease-out;
+    animation: warn 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    left: -28rpx;
+    top: -28rpx;
+}
+
+  /**
+  	 * 动画
+  	 */
+@-webkit-keyframes warn {
+0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 0;
+}
+25% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 0.1;
+}
+50% {
+      -webkit-transform: scale(0.1);
+              transform: scale(0.1);
+      opacity: 0.3;
+}
+75% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+      opacity: 0.5;
+}
+100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 0;
+}
+}
+@keyframes warn {
+0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 0;
+}
+25% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 0.1;
+}
+50% {
+      -webkit-transform: scale(0.1);
+              transform: scale(0.1);
+      opacity: 0.3;
+}
+75% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+      opacity: 0.5;
+}
+100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 0;
+}
+}
+

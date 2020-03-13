@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "全部订单",
+  "onReachBottomDistance": 100,
+  "usingComponents": {
+    "uni-popup": "/components/uni-popup",
+    "txpwd": "/components/txpwd",
+    "mescroll-uni": "/node-modules/_mescroll-uni@1.1.8@mescroll-uni/mescroll-uni"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "navigationBarTitleText": "主播",
+  "titleNView": false,
+  "bounce": "none",
+  "popGesture": "none",
+  "animationType": "slide-in-bottom",
+  "softinputMode": "adjustPan",
+  "subNVues": [
+    {
+      "id": "live1",
+      "path": "pages/live/AudienceSub1.nvue",
+      "style": {
+        "position": "absolute",
+        "bottom": "0",
+        "left": "0",
+        "width": "100%",
+        "height": "100%",
+        "background": "transparent"
+      }
+    }
+  ],
+  "usingComponents": {}
+}

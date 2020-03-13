@@ -1,0 +1,182 @@
+.live-itemlist .live-item__title {
+  white-space: nowrap;
+  height: 104rpx;
+  line-height: 104rpx;
+}
+.live-itemlist .live-item__title .active:after {
+  background: #FA3F3F !important;
+}
+.live-itemlist .live-item__title view {
+  display: inline-block;
+  position: relative;
+  margin-right: 49rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.live-itemlist .live-item__title view:after {
+  position: absolute;
+  bottom: 10rpx;
+  left: 50%;
+  width: 34rpx;
+  height: 4rpx;
+  background: transparent;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  content: ' ';
+}
+.live-itemlist .live-item__title view:first-child {
+  margin-left: 24rpx;
+}
+.live-itemlist .live-item__title view:last-child {
+  margin-right: 0;
+}
+.live-itemlist__wrap {
+  padding: 0 24rpx 40rpx 28rpx;
+  background: #F4F4F4;
+  font-size: 0;
+}
+.live-itemlist__wrap .live-itemlist__item {
+  display: inline-block;
+  width: 339rpx;
+  height: 605rpx;
+  margin-top: 16rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.live-itemlist__wrap .live-itemlist__item:nth-of-type(2n) {
+  margin-right: 0rpx;
+}
+.live-itemlist__wrap .live-itemlist__item--header {
+  position: relative;
+  width: 339rpx;
+  height: 411rpx;
+  border-radius: 10rpx 10rpx 0px 0px;
+  overflow: hidden;
+}
+.live-itemlist__wrap .live-itemlist__item--header .top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  position: absolute;
+  top: 11rpx;
+  z-index: 1;
+  width: 100%;
+  padding: 0 10rpx;
+}
+.live-itemlist__wrap .live-itemlist__item--header .top .left {
+  width: 114rpx;
+  height: 35rpx;
+  text-align: center;
+  line-height: 35rpx;
+  font-size: 20rpx;
+  color: #fff;
+  background: #ff3657;
+  border-radius: 18rpx;
+}
+.live-itemlist__wrap .live-itemlist__item--header .top .right {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  height: 33rpx;
+  padding: 0 11rpx;
+  font-size: 22rpx;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 17rpx;
+  border: 1rpx solid #ffffff;
+}
+.live-itemlist__wrap .live-itemlist__item--header .top .right image {
+  width: 16rpx;
+  height: 19rpx;
+  margin-right: 7rpx;
+}
+.live-itemlist__wrap .live-itemlist__item--header .bottom {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  position: absolute;
+  bottom: 13rpx;
+  left: 16rpx;
+  z-index: 1;
+}
+.live-itemlist__wrap .live-itemlist__item--header .bottom text {
+  width: 220rpx;
+  color: #fff;
+  font-size: 24rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.live-itemlist__wrap .live-itemlist__item--header .bottom image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 16rpx;
+  border-radius: 50%;
+}
+.live-itemlist__wrap .live-itemlist__item--header > image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 339rpx;
+  height: 411rpx;
+  border-radius: 10rpx 10rpx 0px 0px;
+}
+.live-itemlist__wrap .live-ranklint__item--footer {
+  padding: 17rpx 24rpx;
+}
+.live-itemlist__wrap .live-ranklint__item--footer .goods-name {
+  width: 100%;
+  margin-bottom: 6rpx;
+  color: #333;
+  font-size: 28rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.live-itemlist__wrap .live-ranklint__item--footer .bottom {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.live-itemlist__wrap .live-ranklint__item--footer .bottom .left {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  color: #999999;
+  font-size: 24rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.live-itemlist__wrap .live-ranklint__item--footer .bottom .left view {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 30rpx;
+}
+.live-itemlist__wrap .live-ranklint__item--footer .bottom .left text {
+  font-size: 34rpx;
+  color: #FA3F3F;
+}
+.live-itemlist__wrap .live-ranklint__item--footer .bottom image {
+  width: 107rpx;
+  height: 107rpx;
+  border-radius: 10rpx;
+}
+

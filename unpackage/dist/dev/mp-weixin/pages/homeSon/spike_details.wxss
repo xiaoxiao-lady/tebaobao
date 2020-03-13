@@ -1,0 +1,28 @@
+.select-items {
+  display: inline-block;
+  padding: 5rpx 20rpx;
+}
+.grace-product-attr-info .title text {
+  font-size: 26rpx;
+}
+.uni-countdown__splitor {
+  color: #000 !important;
+}
+.uni-countdown__number {
+  background-color: green!important;
+  border-color: green!important;
+}
+.skeleton {
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+}
+.skeleton image {
+  width: 100%;
+  height: 100%;
+}
+

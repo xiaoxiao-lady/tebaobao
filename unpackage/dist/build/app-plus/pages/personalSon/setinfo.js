@@ -1,0 +1,2 @@
+setCssToHead(["body,.",[1],"index_class { height: 100%; }\n",],"Some selectors are not allowed in component wxss, including tag name selectors, ID selectors, and attribute selectors.(./pages/personalSon/setinfo.wxss:2:1)",{path:"./pages/personalSon/setinfo.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/personalSon/setinfo.wxml') } }));

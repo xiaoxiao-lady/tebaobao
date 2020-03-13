@@ -1,0 +1,131 @@
+._ul ._li.data-v-4f966b27 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.pay_banner.data-v-4f966b27 {
+  position: fixed;
+  height: 17rem;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 99999;
+}
+.mask.data-v-4f966b27 {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.pay-tool.data-v-4f966b27 {
+  position: relative;
+}
+.pay-tool-title.data-v-4f966b27 {
+  width: 100%;
+  height: 2.08888888rem;
+  padding: 0 0.8rem;
+  line-height: 2.08888888rem;
+  text-align: center;
+  overflow: hidden;
+}
+.pay-tool-title .icon.data-v-4f966b27 {
+  float: left;
+  margin-top: 0.72222222rem;
+}
+.pay-tool-title ._strong.data-v-4f966b27 {
+  font-size: 0.8rem;
+}
+.pay-tool-content .pay-tool-inputs.data-v-4f966b27 {
+  width: 14.46666666rem;
+  height: 2.31111111rem;
+  margin: 1.28888888rem auto 0;
+  border: 1px solid #b9b9b9;
+  border-radius: 0.26666666rem;
+  box-shadow: 0 0 1px #e6e6e6;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  overflow: hidden;
+}
+.pay-tool-content .pay-tool-inputs .item.data-v-4f966b27 {
+  width: 16.66666666%;
+  height: 2.31111111rem;
+  border-right: 1px solid #b9b9b9;
+  line-height: 2.31111111rem;
+  text-align: center;
+}
+.pay-tool-content .pay-tool-inputs .item.data-v-4f966b27:last-child {
+  border-right: none;
+}
+.pay-tool-content .pay-tool-inputs .item .icon_dot.data-v-4f966b27 {
+  display: inline-block;
+  width: 0.51111111rem;
+  height: 0.51111111rem;
+}
+.pay-tool-content .pay-tool-link.data-v-4f966b27 {
+  padding: 0.53333333rem 0.8rem 0;
+  text-align: right;
+}
+.pay-tool-content .pay-tool-link .link.data-v-4f966b27 {
+  font-size: 0.66666666rem;
+  color: #3c8cfb;
+}
+.pay-tool .pay-tool-keyboard.data-v-4f966b27 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.pay-tool .pay-tool-keyboard ._ul.data-v-4f966b27 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27 {
+  width: 33.3333%;
+  height: 2.25442834rem;
+  line-height: 2.25442834rem;
+  text-align: center;
+  border-right: 1px solid #aeaeae;
+  border-bottom: 1px solid #aeaeae;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(1),
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(2),
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(3) {
+  border-top: 1px solid #eee;
+}
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(3),
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(6),
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(9),
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(12) {
+  border-right: none;
+}
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(10),
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(11),
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(12) {
+  border-bottom: none;
+}
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(10),
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(12),
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:active {
+  background-color: #d1d4dd;
+}
+.pay-tool .pay-tool-keyboard ._ul ._li.data-v-4f966b27:nth-child(12):active {
+  background-color: #fff;
+}
+.icon_e617.data-v-4f966b27 {
+  font-size: 18px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+

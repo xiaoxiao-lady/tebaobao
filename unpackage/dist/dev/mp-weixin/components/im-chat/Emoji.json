@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "chat-input": "/components/im-chat/chatinput"
+  },
+  "component": true
+}

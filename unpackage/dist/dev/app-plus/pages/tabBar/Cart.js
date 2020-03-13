@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"grace-footer { display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; justify-content: space-between; bottom: var(--window-bottom); }\n.",[1],"mescroll-empty .",[1],"empty-icon { width: 75%!important; }\n",],undefined,{path:"./pages/tabBar/Cart.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/tabBar/Cart.wxml') } }));

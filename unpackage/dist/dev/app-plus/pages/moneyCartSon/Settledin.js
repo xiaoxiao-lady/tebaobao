@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"sett-status { padding-left: ",[0,30],"; margin-top: ",[0,30],"; color: #999; font-size: ",[0,26],"; }\n",],undefined,{path:"./pages/moneyCartSon/Settledin.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/moneyCartSon/Settledin.wxml') } }));

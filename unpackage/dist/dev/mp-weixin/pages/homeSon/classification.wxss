@@ -1,0 +1,32 @@
+
+.icon_e64c {
+    width: 120rpx;
+    height: 120rpx;
+    line-height: 120rpx;
+    text-align: center;
+    font-size: 80rpx;
+    color: #CECDCD;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column
+}
+.active {
+    width: 100%!important;
+}
+.active image {
+    width: 378rpx!important;
+    height: 378rpx!important;
+}
+.index_class, page {
+	height: 100%;
+}
+.s_title {
+    padding-left:30rpx!important;
+    padding-bottom:0!important;
+}
+.class_scoll {
+    top: 0!important;
+    height: 100%!important;
+}
+

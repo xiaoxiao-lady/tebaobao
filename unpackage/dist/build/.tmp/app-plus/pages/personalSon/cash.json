@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "提现",
+  "titleNView": {
+    "buttons": [
+      {
+        "text": "提现记录",
+        "fontSize": "14px",
+        "color": "#fff",
+        "width": "75px"
+      }
+    ]
+  },
+  "usingComponents": {
+    "txpwd": "/components/txpwd"
+  }
+}

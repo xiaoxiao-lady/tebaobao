@@ -1,0 +1,20 @@
+{
+  "navigationBarTitleText": "购物车",
+  "enablePullDownRefresh": true,
+  "titleNView": {
+    "buttons": [
+      {
+        "float": "right",
+        "text": "编辑",
+        "fontSize": "13px",
+        "width": "60px"
+      }
+    ]
+  },
+  "usingComponents": {
+    "load-more": "/components/uni-load-more",
+    "popup-layer": "/components/popup-layer",
+    "uni-number-box": "/components/uni-number-box",
+    "login": "/components/login"
+  }
+}

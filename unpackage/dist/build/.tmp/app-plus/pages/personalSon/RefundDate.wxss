@@ -1,0 +1,14 @@
+
+.checkal {
+    height: 500rpx;
+    position: relative;
+}
+.check-cont {
+    height: calc(100% - 90rpx);
+    overflow-y: auto;
+}
+.icon_e712 {
+    text-align: center;
+    font-size: 45rpx;
+}
+

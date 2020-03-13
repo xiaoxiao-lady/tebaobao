@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "grace-swiper": "/graceUI/components/graceSwiper",
+    "uni-number-box": "/components/uni-number-box",
+    "uni-countdown": "/components/uni-countdown"
+  }
+}

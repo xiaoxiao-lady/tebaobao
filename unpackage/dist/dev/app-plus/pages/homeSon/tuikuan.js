@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"payment_order { background-color: transparent!important; color: #FA3F3F!important; }\n.",[1],"bottom_img { padding: ",[0,20],"!important; background-color: #F9F9F9!important; }\n.",[1],"or_number { border-top: ",[0,1]," solid #f4f4f4; }\n.",[1],"number_sure { margin-top: 0!important; }\n",],undefined,{path:"./pages/homeSon/tuikuan.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/homeSon/tuikuan.wxml') } }));

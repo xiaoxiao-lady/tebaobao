@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "搜索筛选",
+  "usingComponents": {
+    "uni-drawer": "/components/uni-drawer"
+  }
+}

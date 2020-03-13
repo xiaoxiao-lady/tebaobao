@@ -1,0 +1,18 @@
+{
+  "navigationBarTitleText": "直播",
+  "enablePullDownRefresh": true,
+  "titleNView": {
+    "buttons": [
+      {
+        "type": "none",
+        "float": "right",
+        "text": "我的直播",
+        "fontSize": "13px",
+        "width": "60px"
+      }
+    ]
+  },
+  "usingComponents": {
+    "load-more": "/components/uni-load-more"
+  }
+}

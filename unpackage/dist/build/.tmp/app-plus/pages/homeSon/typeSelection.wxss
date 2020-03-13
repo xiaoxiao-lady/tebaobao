@@ -1,0 +1,19 @@
+
+page {
+	background: #f4f4f4;
+}
+.index_class, page {
+	height: 100%;
+}
+.to-tltle {
+	padding:0!important;
+	margin:0!important;
+}
+.status {
+	background-color:red!important;
+	position: relative!important;
+}
+.type-fliter {
+    padding-top: 191rpx;
+}
+

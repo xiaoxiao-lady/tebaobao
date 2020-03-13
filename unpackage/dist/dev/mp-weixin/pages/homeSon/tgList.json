@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "热卖爆款",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more"
+  }
+}

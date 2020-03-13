@@ -1,0 +1,5 @@
+
+.download-active {
+	color: #FA3F3F!important;
+}
+

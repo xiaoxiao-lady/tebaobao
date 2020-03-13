@@ -1,0 +1,1 @@
+<block wx:if="{{pageShow}}"><view class="rule _div"><view class="content _div"><rich-text nodes="{{content}}"></rich-text></view></view></block>

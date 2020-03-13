@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "enablePullDownRefresh": true,
+  "titleNView": {
+    "type": "transparent",
+    "buttons": [
+      {
+        "type": "menu",
+        "float": "right"
+      }
+    ]
+  },
+  "usingComponents": {
+    "login": "/components/login"
+  }
+}

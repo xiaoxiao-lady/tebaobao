@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "收藏",
+  "titleNView": {
+    "buttons": [
+      {
+        "text": "管理",
+        "fontSize": "14px",
+        "color": "#fff"
+      }
+    ]
+  },
+  "usingComponents": {
+    "load-more": "/components/uni-load-more"
+  }
+}

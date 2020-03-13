@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "限时秒杀",
+  "backgroundColor": "#433D3D",
+  "usingComponents": {
+    "load-more": "/components/uni-load-more",
+    "uni-countdown": "/components/uni-countdown"
+  }
+}

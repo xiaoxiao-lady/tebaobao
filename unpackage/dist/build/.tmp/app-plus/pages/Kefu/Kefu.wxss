@@ -1,0 +1,6 @@
+
+.mobile{
+	text-align: center;
+	padding: 40rpx;
+}
+

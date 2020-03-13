@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"index_class { padding: ",[0,50]," ",[0,24]," 0 ",[0,24],"!important; }\nbody,.",[1],"index_class{ height: 100%; }\n",],"Some selectors are not allowed in component wxss, including tag name selectors, ID selectors, and attribute selectors.(./pages/moneyCartSon/Mybankcard.wxss:5:1)",{path:"./pages/moneyCartSon/Mybankcard.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/moneyCartSon/Mybankcard.wxml') } }));

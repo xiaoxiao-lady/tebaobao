@@ -1,0 +1,139 @@
+
+
+	.footer {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		padding: 0 30upx;
+		box-shadow: 0px 0px 2upx rgba(0,0,0,0.16);
+		overflow: hidden;
+		box-sizing: border-box;
+		background: #fff;
+	}
+
+	.footer-left {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.face {
+			width: 64upx;
+			height: 64upx;
+		}
+
+		.album {
+			width: 68upx;
+			height: 55upx;
+		}
+
+		i {
+			font-size: 60upx;
+			color: #333;
+			padding-right: 26upx;
+
+			&:last-child {
+				position: relative;
+				top: 3upx;
+			  padding-right: 0upx;
+			}
+		}
+	}
+	.footer-right {
+    font-size: 34upx;
+    color: #333;
+	}
+
+	.footer-center {
+    flex: 1;
+		height: 70upx;
+		margin: 0 20upx;
+	}
+
+	.footer-center .input-text {
+		height: 70upx;
+    line-height:70rpx;
+		background: #fff;
+		border: solid 1upx #D2D2D2;
+		overflow: hidden;
+		padding: 0 20upx;
+		border-radius: 30upx;
+		font-size: 28upx;
+	}
+
+  .emoji {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    background: #fff;
+    transform: translate3d(0, 100%, 0);
+    // transition: all .3s ease;
+
+    .emoji-content-swiper {
+      width: 100%;
+      height: 390upx;
+    }
+
+    .input-wrap {
+      height: 110upx;
+    }
+  }
+
+  .show {
+    transform: translate3d(0, 0, 0);
+  }
+
+  /*内容  */
+  .emoji-content {
+    width: 100%;
+    height: 400rpx;
+    /* padding-top: 30rpx; */
+    padding-left: 20rpx;
+    box-sizing:border-box;
+  }
+  .emoji-content-item {
+    display: inline-block;
+    padding: 20rpx;
+  }
+  .emoji-content-img-emoji {
+    width: 50rpx;
+    height: 50rpx;
+  }
+  .emoji-content-img-other {
+    width: 100rpx;
+    height: 100rpx;
+  }
+  /*底部类别  */
+  .emoji-album {
+    width: 100%;
+    height: 70rpx;
+    border: 2rpx solid #999;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  .emoji-album-left {
+    display: inline-block;
+    height: 100%;
+  }
+  .emoji-album-left-img {
+    width:70rpx;
+    height:100%;
+    padding:8rpx 10rpx;
+    box-sizing:border-box;
+    border-right:2rpx soild #999
+  }
+  .emoji-send {
+    width: 80rpx;
+    height: 100%;
+    line-height:70rpx;
+    background-color: #0091e4;
+    text-align: center;
+    float: right;
+    color: #fff;
+  }
+  .album-active {
+    background-color: #aaa;
+  }

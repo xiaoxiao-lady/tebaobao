@@ -1,0 +1,1 @@
+<block wx:if="{{pageShow}}"><view class="_div"><view style="text-align:center;padding:30px;" class="_div">{{"我的推广码: "+yaoqingma}}</view><view style="text-align:center;font-size:12px;color:#4C4C4C;margin-top:30%;" class="_div"><view class="_div">Copyright©2020</view><view class="_div">柏思美 版权所有</view></view></view></block>

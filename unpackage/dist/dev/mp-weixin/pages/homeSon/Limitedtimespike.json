@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "限时秒杀",
+  "usingComponents": {
+    "uni-countdown": "/components/uni-countdown"
+  }
+}

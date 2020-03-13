@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"header-filter { width: 100%; position: fixed!important; padding: 0 ",[0,170],"!important; }\n.",[1],"isdelect { padding-bottom: ",[0,90],"; }\n",],undefined,{path:"./pages/moneyCartSon/Collection.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/moneyCartSon/Collection.wxml') } }));

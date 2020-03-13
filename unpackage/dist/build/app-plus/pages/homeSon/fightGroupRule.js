@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"content { padding: 0.4rem 0.3rem 0 0.3rem; }\n",],undefined,{path:"./pages/homeSon/fightGroupRule.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/homeSon/fightGroupRule.wxml') } }));

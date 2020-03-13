@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"settled { background-color: transparent!important; }\n.",[1],"btn-text { text-align:center; margin-top:",[0,17],"; font-size: ",[0,26],"; color: #999; }\n.",[1],"withdrawable { position: relative; }\n.",[1],"settess { position: absolute; right: 0; top: 50%; -webkit-transform: translateY(-50%); transform: translateY(-50%); font-size: ",[0,26],"; }\n",],undefined,{path:"./pages/personalSon/cash.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/personalSon/cash.wxml') } }));

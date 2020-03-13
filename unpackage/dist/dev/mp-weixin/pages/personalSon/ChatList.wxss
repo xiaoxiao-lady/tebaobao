@@ -1,0 +1,66 @@
+.item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  width: 100%;
+  height: 136rpx;
+  padding: 0 24rpx;
+  color: #999;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.item .avatar {
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 24rpx;
+  border-radius: 10rpx;
+}
+.item .avatar ._span {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background: red;
+  color: #fff;
+  font-size: 20rpx;
+  border-radius: 50%;
+  padding: 0.1rem 0.2rem;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+.item image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+}
+.item .item-middle {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  margin-right: 20rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item .item-middle view {
+  margin-bottom: 13rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.item .item-middle text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.no-more {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #999;
+}
+

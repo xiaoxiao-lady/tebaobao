@@ -1,0 +1,31 @@
+.status,
+.to-tltle,
+.bus-top {
+  background-color: transparent !important;
+}
+.cat-number {
+  text-align: center;
+}
+.download-active {
+  color: #fa3f3f !important;
+}
+.seg-img {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.seg-img image {
+  width: 208rpx!important;
+  height: 208rpx!important;
+  display: inline-block;
+  margin: 0 7rpx 10rpx 0!important;
+}
+.seg-img image:nth-child(3n) {
+  margin-right: 0!important;
+}
+

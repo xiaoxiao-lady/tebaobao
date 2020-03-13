@@ -1,0 +1,69 @@
+.footer.data-v-e848609c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 30rpx;
+  box-shadow: 0px 0px 2rpx rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fff;
+}
+.footer-left.data-v-e848609c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.footer-left .face.data-v-e848609c {
+  width: 64rpx;
+  height: 64rpx;
+}
+.footer-left .album.data-v-e848609c {
+  width: 68rpx;
+  height: 55rpx;
+}
+.footer-left ._i.data-v-e848609c {
+  font-size: 60rpx;
+  color: #333;
+  padding-right: 30rpx;
+}
+.footer-left ._i.data-v-e848609c:last-child {
+  position: relative;
+  top: 3rpx;
+  padding-right: 0;
+}
+.footer-right.data-v-e848609c {
+  font-size: 34rpx;
+  color: #333;
+}
+.footer-center.data-v-e848609c {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  height: 72rpx;
+  margin: 0 16rpx;
+}
+.footer-center .input-text.data-v-e848609c {
+  height: 72rpx;
+  background: #E9E9E9;
+  border: solid 1rpx #D2D2D2;
+  overflow: hidden;
+  padding: 0 36rpx;
+  border-radius: 36rpx;
+  font-size: 28rpx;
+}
+

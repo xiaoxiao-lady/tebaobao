@@ -1,0 +1,48 @@
+.money {
+  padding-left: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.icon_e712 {
+  text-align: center;
+  font-size: 45rpx;
+}
+.cuxiao {
+  margin-bottom: 40rpx;
+}
+.tip {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  height: 98rpx;
+  padding: 0 30rpx;
+  color: #ed6a0c;
+  background: #fffbe8;
+  font-size: 26rpx;
+}
+.tip ._i {
+  padding-right: 10rpx;
+}
+.phone {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 0 30rpx;
+}
+.phone .tap_address {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  padding: 0 10rpx;
+}
+.phone .phone-iconfont {
+  position: static!important;
+  padding-right: 0;
+  width: auto!important;
+  margin: 0;
+  padding: 0!important;
+}
+

@@ -1,0 +1,1 @@
+<view class="index_class"><textarea style="width:100%;padding:20rpx;box-sizing:border-box;" placeholder="我要留言"></textarea><view style="text-align:right;padding-right:20rpx;color:#999;">0/200</view><view class="person-button" style="margin-bottom:40rpx;"><button class="btn" type="warn">提交审核</button></view></view>

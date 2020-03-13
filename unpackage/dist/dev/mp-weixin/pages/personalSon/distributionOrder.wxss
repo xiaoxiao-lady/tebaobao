@@ -1,0 +1,68 @@
+page {
+  padding-top: 20rpx;
+  background: #f4f6f9;
+}
+.order-item {
+  height: 336rpx;
+  margin: 0 24rpx 20rpx 24rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+.order-item:first-child {
+  margin-top: 0;
+}
+.order-title {
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 41rpx 0 23rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+.order-date {
+  color: #555;
+  font-size: 28rpx;
+}
+.order-info {
+  height: 156rpx;
+  border-bottom: 1rpx dashed #e8e8e8;
+}
+.order-info-left ._img {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin: 34rpx 20rpx 0 26rpx;
+}
+.order-info-right {
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 34rpx;
+}
+.order-info-right ._p {
+  height: 28rpx;
+}
+.order-info-right ._p:nth-of-type(1) {
+  margin-bottom: 36rpx;
+}
+.order-order {
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 24rpx;
+}
+.order-ordernum {
+  width: 470rpx!important;
+  font-size: 26rpx;
+  color: #999;
+}
+.order-money {
+  display: -webkit-box!important;
+  display: -webkit-flex!important;
+  display: flex!important;
+  font-size: 26rpx;
+  color: #545454;
+}
+.order-money ._span,
+.order-money ._i {
+  font-style: normal;
+  font-size: 26rpx;
+}
+

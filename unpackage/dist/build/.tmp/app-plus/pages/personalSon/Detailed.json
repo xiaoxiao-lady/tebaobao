@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "余额明细",
+  "usingComponents": {
+    "mescroll-uni": "/node-modules/mescroll-uni/mescroll-uni"
+  }
+}

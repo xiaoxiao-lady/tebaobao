@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "秒杀商品详情",
+  "titleNView": false,
+  "usingComponents": {
+    "grace-swiper": "/graceUI/components/graceSwiper",
+    "uni-number-box": "/components/uni-number-box",
+    "uni-countdown": "/components/uni-countdown",
+    "uni-popup": "/components/uni-popup"
+  }
+}

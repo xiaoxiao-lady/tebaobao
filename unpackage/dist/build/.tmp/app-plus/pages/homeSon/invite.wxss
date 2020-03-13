@@ -1,0 +1,61 @@
+page,
+.fightgroup {
+  height: 100%;
+  background: #fff;
+}
+.invite-body {
+  padding: 35rpx 24rpx 0 24rpx;
+}
+.invite-body ._h2 {
+  margin-bottom: 30rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.invite-body .invite-body__wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.invite-body .invite-body__wrap .invite-body__wrap--item {
+  width: 100rpx;
+  margin-right: 28rpx;
+  text-align: center;
+  color: #333;
+  font-size: 24rpx;
+}
+.invite-body .invite-body__wrap .invite-body__wrap--item:last-child {
+  margin-right: 0;
+}
+.invite-body .invite-body__wrap .invite-body__wrap--item image {
+  width: 92rpx;
+  height: 92rpx;
+  margin-bottom: 22rpx;
+}
+.invite-header {
+  padding-top: 52rpx;
+  padding-bottom: 37rpx;
+  text-align: center;
+  border-bottom: 20rpx solid #f4f4f4;
+}
+.invite-header > ._p {
+  color: #E46800;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 24rpx;
+  margin-bottom: 8rpx;
+}
+.invite-header ._span {
+  color: #999999;
+  font-size: 22rpx;
+}
+.invite-header .invite-header__user {
+  margin-bottom: 27rpx;
+  text-align: center;
+}
+.invite-header .invite-header__user image {
+  width: 104rpx;
+  height: 104rpx;
+  margin-left: -22rpx;
+  border-radius: 50%;
+}
+

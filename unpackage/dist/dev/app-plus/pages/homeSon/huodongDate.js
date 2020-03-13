@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"index_class { background-color: #fff!important; }\n.",[1],"uni-countdown__splitor { font-size: ",[0,26],"!important; color: #fff!important; }\n.",[1],"type-fliter { position: relative!important; }\n",],undefined,{path:"./pages/homeSon/huodongDate.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/homeSon/huodongDate.wxml') } }));

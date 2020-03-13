@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"checkColor { color: #FF5001; }\n",],undefined,{path:"./pages/homeSon/fbevaluate.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/homeSon/fbevaluate.wxml') } }));

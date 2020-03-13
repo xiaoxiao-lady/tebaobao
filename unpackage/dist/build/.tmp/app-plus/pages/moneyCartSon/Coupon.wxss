@@ -1,0 +1,10 @@
+
+.header-filter {
+    width: 100%;
+    position: fixed!important;
+    padding: 0 170rpx!important;
+}
+.silder-list {
+    padding: 0 30rpx;
+}
+

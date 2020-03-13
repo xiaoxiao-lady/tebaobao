@@ -1,0 +1,249 @@
+
+
+// 子页面样式
+// 我的关注
+.myFollow {
+    padding-top: 100upx;
+    .seg-top {
+        .seg-top;
+        padding: 17upx 30upx;
+        background-color: @colorfff;
+        border-bottom: 1upx solid @colorF4F4F4;
+    }
+}
+
+// 个人中心样式
+.personal-cont {
+    background-color: @homeColor;
+    padding-top: 100upx;
+    .customNav;
+    .seg-top {
+        .seg-top;
+        .seg-left {
+            image {
+                height: 126upx;
+                width: 126upx;
+            }
+            text {
+                font-size: @font36;
+                color: @colorfff;
+
+            }
+            .datatime {
+                color: #FCB3B3;
+            }
+            
+
+        }
+    }
+    .ad-number {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30upx 0;
+        .ad-items {
+            flex: 1;
+            text {
+                display: block;
+                text-align: center; 
+                color: @colorfff;
+                font-size: @font34;
+                &:nth-child(2) {
+                    font-size: @font28;
+                }
+            }
+        }
+    }
+}
+
+
+// 热门话题样式
+.pop-conent {
+    .pop-box {
+        
+        .pop-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20upx 50upx;
+            background-color: @colorfff;
+            border-bottom: 1upx solid @colorF4F4F4;
+            image {
+                
+                height: 157upx;
+                width: 157upx;
+                background-color: #eee;
+            }
+            .pop-right {
+                flex: 1;
+                margin-left: 20upx;
+                .pop-title {
+                    font-size: @font34;
+                }
+                .pop-time {
+                    font-size: @font26;
+                    color: @fontColor;
+                }
+                .pop-text {
+                    margin-top: 10upx;
+                    font-size: @font24;
+                    
+                }
+            }
+        }
+    }
+}
+
+// 个人中心动态样式
+.cat-dynamic {
+    background-color: @colorF4F4F4;
+    .cat-banner {
+        position: relative;
+        image {
+            width: 100%;
+            height: 348upx;
+            display: block;
+        }
+        .cat-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            .cat-name {
+                color: @colorfff;
+                font-size: @font36;
+            }
+            .cat-number {
+                color: @colorfff;
+                font-size: @font30;
+            }
+        }
+    }
+    .cat-text {
+        padding: 30upx;
+        background-color: @colorfff;
+        margin-bottom: 20upx;
+        .cat-top {
+            color: @fontColor;
+            font-size: @font22;
+            text {
+                padding: 0upx 9upx;
+                color: @homeColor;
+                border: 1upx solid @homeColor;
+                border-radius: 6upx;
+                font-size: @font22;
+            }
+        }
+        .cat-right {
+            width: 100%;
+            text-align: right;
+            font-size: @font22;
+            margin-top: 20upx;
+        }
+    }
+
+    .cat-tab {
+        background-color: @colorfff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30upx;
+        height: 98upx;
+        border-bottom: 1upx solid @colorF4F4F4;
+        .nav-tab {
+            text {
+                padding: 5upx 5upx;
+                font-size: @font34;
+                &:nth-child(1) {
+                    margin-right: 60upx;
+                }
+                &.active {
+                    border-bottom: 4upx solid @homeColor;
+                }
+            }
+            
+        }
+    }
+}
+
+    // 发布动态页面 
+.rele-areat {
+    padding-top: 0;
+    .input-text {
+        background-color: @colorfff;
+        padding: 30upx;
+        border-bottom: 1upx solid @colorF4F4F4;
+        textarea {
+            width: 100%;
+            height: 250upx;
+        }
+        .text-number {
+            width: 100%;
+            text-align: right;
+            color: @fontColor;
+            font-size: @font28;
+        }
+    }
+
+    .addfile {
+        background-color: @colorfff;
+        border-bottom: 1upx solid @colorF4F4F4;
+        .grace-add-file {
+            width: 100%;
+        }
+
+    }
+
+    .label {
+        padding:  0 30upx;
+        background-color: @colorfff;
+        .label-title {
+            padding: 20upx 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text {
+                font-size: @font30;
+            }
+            .more ,view{
+                color: @fontColor;
+                font-size: @font24;
+                
+            }
+        }
+        .grace-select-tips {
+            .grace-checked {
+                background-color: @homeColor!important;
+            }
+        }
+        
+    }
+    .label-btn {
+        width: 100%;
+        height: 98upx;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1upx solid @colorF4F4F4;
+        padding: 0 30upx;
+        background-color: @colorfff;
+        text , view {
+            font-size: @font30;
+        }
+    }
+}
+
+
+// 发布动态标题搜索
+.tag-box {
+    width: 100%;
+    .tag-item {
+        width: 100%;
+        height: 98upx;
+        line-height: 98upx;
+        font-size: @font30;
+        padding: 0 30upx;
+        border-bottom: 1upx solid @colorF4F4F4;
+        background-color: @colorfff;
+    }
+}

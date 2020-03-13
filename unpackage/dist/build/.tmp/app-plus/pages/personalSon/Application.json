@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "申请投诉",
+  "usingComponents": {
+    "uni-popup": "/components/uni-popup"
+  }
+}

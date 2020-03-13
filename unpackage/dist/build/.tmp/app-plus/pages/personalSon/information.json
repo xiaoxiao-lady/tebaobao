@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "填写资料",
+  "usingComponents": {
+    "uni-popup": "/components/uni-popup"
+  }
+}

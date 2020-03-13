@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "titleNView": {
+    "type": "transparent"
+  },
+  "usingComponents": {
+    "popup-layer": "/components/popup-layer",
+    "grace-swiper": "/graceUI/components/graceSwiper",
+    "uni-number-box": "/components/uni-number-box",
+    "uni-countdown": "/components/uni-countdown"
+  }
+}

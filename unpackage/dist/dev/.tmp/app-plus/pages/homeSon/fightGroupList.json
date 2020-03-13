@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "人人拼团",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more"
+  }
+}

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>wosmart</title>
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_989161_vmkn4edstg.css">
+  <script>! function (n) {
+    var e = n.document,
+      t = e.documentElement,
+      i = 750,
+      d = i / 100,
+      o = "orientationchange" in n ? "orientationchange" : "resize",
+      a = function () {
+        var n = t.clientWidth || 320;
+        n > 750 && (n = 750);
+        t.style.fontSize = n / d + "px"
+      };
+    e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
+  }(window);</script>
+  <style>
+  #app {
+  max-width: 7.5rem;
+  min-height: 100%;
+  height: 100%;
+  margin: 0 auto;
+  font-size: .28rem
+}
+
+a.router-link-exact-active {
+  color: #fd5315!important
+}
+
+.toast-fade-enter-active,.toast-fade-leave-active {
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s
+}
+
+.toast-fade-enter,.toast-fade-leave-to {
+  opacity: 0
+}
+
+.dialog-fade-enter-active,.dialog-fade-leave-active {
+  -webkit-transition: all .3s;
+  transition: all .3s
+}
+
+.dialog-fade-enter,.dialog-fade-leave-to {
+  opacity: 0
+}
+
+.view {
+  position: absolute;
+  width: 100%;
+  max-width: 7.5rem;
+  min-height: 100%;
+  padding-bottom: .98rem!important;
+  background: #f6f6f6;
+  opacity: 1;
+  -webkit-transition: opacity .2s cubic-bezier(.25,.25,.75,.75);
+  transition: opacity .2s cubic-bezier(.25,.25,.75,.75)
+}
+
+.view-active {
+  padding-bottom: 0!important
+}
+
+.view-fade-enter,.view-fade-enter-active {
+  opacity: 0
+}
+
+.view-fade-leave,.view-fade-leave-active {
+  -webkit-transition: opacity 0s;
+  transition: opacity 0s;
+  opacity: 0
+}
+
+html {
+  color: #000;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%
+}
+
+html * {
+  outline: 0;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent
+}
+
+body,html {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 100%;
+  min-height: 100%;
+  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,Arial,sans-serif;
+}
+
+body {
+  background: #eee;
+  font-size: 0.3rem;
+}
+
+div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box
+}
+
+article,aside,blockquote,body,button,code,dd,details,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,legend,li,menu,nav,ol,p,pre,section,td,textarea,th,ul {
+  margin: 0;
+  padding: 0
+}
+
+input,select,textarea {
+  font-size: 100%
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+ol,ul {
+  list-style: none
+}
+
+caption,th {
+  text-align: left
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-size: 100%;
+  font-weight: 400
+}
+
+q:after,q:before {
+  content: ""
+}
+
+sub,sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline
+}
+
+sup {
+  top: -.5em
+}
+
+sub {
+  bottom: -.25em
+}
+
+a {
+  text-decoration: underline
+}
+
+i {
+  font-style: normal
+}
+
+a,ins {
+  text-decoration: none
+}
+
+a {
+  -webkit-tap-highlight-color: transparent
+}
+
+a,a:visited {
+  color: #333
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent
+}
+
+::-webkit-input-placeholder {
+  color: #ccc
+}
+
+::-moz-placeholder {
+  color: #ccc
+}
+
+::-ms-input-placeholder {
+  color: #ccc
+}
+
+@media only screen and (min-width: 1100px) {
+  html {
+      font-size:70px!important
+  }
+}
+
+
+/* loading */
+.loading {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99999999;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+.loading-active {
+	opacity: 1;
+}
+.loading-content {
+	position: absolute;
+	left: 50%;
+	top: 18%;
+	padding: .26rem .3rem;
+	border-radius: .1rem;
+	font-size: .22rem;
+	text-align: center;
+	color: #fff;
+	background: rgba(0, 0, 0, .7);
+	-webkit-transform: translate3d(-50%, 0, 0);
+	transform: translate3d(-50%, 0, 0);
+}
+.loading-content i {
+	position: relative;
+	display: inline-block;
+	margin-right: .05rem;
+	margin-bottom: 0.2rem;
+	font-size: .4rem;
+	vertical-align: middle;
+}
+.loading-content span {
+	display: block;
+}
+.loop {
+	-webkit-animation: loading-loop .8s linear infinite;
+	animation: loading-loop .8s linear infinite;
+}
+@-webkit-keyframes loading-loop {
+	0% {
+		-webkit-transform: rotate(0);
+		transform: rotate(0);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@keyframes loading-loop {
+	0% {
+		-webkit-transform: rotate(0);
+		transform: rotate(0);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+
+/*弹窗组件样式*/
+.tipBox {
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: 100000000000000;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	-webkit-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+
+.tipBox-active {
+	opacity: 1;
+}
+
+.tipBox .mask {
+	opacity: 1;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .6);
+}
+
+.alert,
+.confirm {
+	position: fixed;
+	z-index: 5000;
+	width: 88%;
+	max-width: 6rem;
+	top: 50%;
+	left: 50%;
+	-webkit-box-shadow: 1px 1px 18px 2px rgba(0, 0, 0, 0.5);
+	box-shadow: 1px 1px 18px 2px rgba(0, 0, 0, 0.5);
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 0.06rem;
+	overflow: hidden;
+	box-sizing: border-box;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-color: #fafafc;
+}
+
+.confirm > .msg {
+	padding: 0 0.5rem;
+	margin: 0.2rem 0 0.3rem 0;
+	line-height: 1.5;
+	font-size: 0.28rem;
+	text-align: center;
+}
+
+.alert p {
+	text-align: left !important;
+	margin-bottom: 0.1rem;
+	font-size: 0.3rem !important;
+}
+
+.alert > .msg {
+	margin: 0.2rem 0 0.4rem 0;
+	padding: 0 0.5rem;
+	line-height: 1.5;
+	text-align: center;
+	color: #333;
+	font-size: 0.28rem;
+}
+
+.cancelBtn {
+	color: #777 !important;
+}
+
+.tipBox .title {
+	padding: 0.3rem 0 0.2rem 0;
+	font-size: 0.32rem;
+	font-weight: 400;
+	color: #222;
+	text-align: center;
+}
+
+.tipBtn {
+	height: 0.9rem;
+	line-height: 0.9rem;
+	border-top: 1px solid #eee;
+	font-size: 0.32rem;
+	text-align: center;
+	color: #06bb04;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.tipBtn a {
+	display: block;
+	cursor: pointer;
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.confirmBtn {
+  color: #FF5A7C!important;
+}
+
+.tipBtn a:active {
+	background-color: #dad9d9;
+}
+
+.cancelBtn {
+	border-right: 1px solid #d5d5d6;
+}
+
+#tip .msg {
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	z-index: 100000000000000;
+	margin-bottom: 0.3rem;
+	font-size: 0.26rem;
+	color: #fff !important;
+	overflow: hidden;
+	-webkit-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+	background-color: #0c0c0c;
+	padding: 0.22rem 0.4rem;
+	border-radius: 0.1rem;
+	opacity: .75;
+	font-size: 0.3rem;
+}
+
+.item-list {
+  padding: 0 0.3rem;
+  background: #fff;
+}
+
+.item {
+  padding-top: 0.4rem;
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  padding-left: 0.1rem;
+}
+
+.item-header img {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-right: 0.18rem;
+  border-radius: 50%;
+}
+
+.item-header__right h2 {
+  color: #333;
+  font-size: 0.34rem;
+  margin-bottom: 0.04rem;
+}
+
+.item-header__right span {
+  color: #999;
+  font-size: 0.26rem;
+}
+
+.item-content {
+  margin-top: 0.15rem;
+  text-align: justify;
+  color: #333333;
+  font-size: 0.28rem;
+  line-height: 0.4rem;
+}
+
+.item-imgs {
+  font-size: 0;
+}
+
+.item-imgs img {
+  margin: 0.1rem 0.06rem 0 0;
+  width: 2.26rem;
+  height: 2.26rem;
+  border-radius: 0.04rem;
+}
+
+.item-imgs img:nth-of-type(3n) {
+  margin-right: 0!important;
+}
+
+.item-goods {
+  display: flex;
+  align-items: center;
+  height: 1.28rem;
+  margin-top: 0.1rem;
+  padding: 0 0.2rem;
+  background: #F5F5F5;
+}
+
+.item-goods__right {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.item-goods img {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 0.08rem;
+  margin-right: 0.18rem;
+}
+
+.item-goods__bottom {
+  display: flex;
+  align-items: center;
+  height: 0.8rem;
+  margin-top: 0.1rem;
+}
+
+.item-goods__bottom > div {
+  flex: 1;
+  font-size: 0.269rem;
+  color: #333;
+  text-align: center;
+}</style>
+</head>
+<body>
+  <div class="item-list">
+    <div class="item">
+      <div class="item-header">
+        <img src="https://nycs.maitexun.cn/uploads/find_pic/20190423/af8d4a52f5b764f2ac49f6e13ebb1bd1.png">
+        <div class="item-header__right">
+          <h2>小猪</h2>
+          <span>17小时前发布</span>
+        </div>
+      </div>
+      <div class="item-content">苹果品种数以千计，分为酒用品种、烹调品种、鲜食品
+        种3大类。3类品种的大小、颜色、香味、光滑度 （可能
+        还有脆性、风味）等特点均有差别。不少品种含糖较高
+        中等酸度丹宁含量很低。</div>
+      <div class="item-imgs">
+        <img src="https://nycs.maitexun.cn/uploads/find_pic/20190423/af8d4a52f5b764f2ac49f6e13ebb1bd1.png">
+        <img src="https://nycs.maitexun.cn/uploads/find_pic/20190423/af8d4a52f5b764f2ac49f6e13ebb1bd1.png">
+        <img src="https://nycs.maitexun.cn/uploads/find_pic/20190423/af8d4a52f5b764f2ac49f6e13ebb1bd1.png">
+        <img src="https://nycs.maitexun.cn/uploads/find_pic/20190423/af8d4a52f5b764f2ac49f6e13ebb1bd1.png">
+        <img src="https://nycs.maitexun.cn/uploads/find_pic/20190423/af8d4a52f5b764f2ac49f6e13ebb1bd1.png">
+      </div>
+      <div class="item-goods">
+        <img src="https://nycs.maitexun.cn/uploads/find_pic/20190423/af8d4a52f5b764f2ac49f6e13ebb1bd1.png">
+        <div class="item-goods__right">
+          【奔腾马红刚】普通生菜3.40元/件(500克左右,含运费)仅限汉川市内购买送货
+        </div>
+      </div>
+      <div class="item-goods__bottom">
+        <div class="item-goods__bottom-item">
+          <i class="iconfont icon-linedesign-02"></i>
+          <span>152</span>
+        </div>
+        <div class="item-goods__bottom-item">
+          <i class="iconfont icon-xiazai1"></i>
+          <span>152</span>
+        </div>
+        <div class="item-goods__bottom-item">
+          <i class="iconfont icon-fenxiang2"></i>
+          <span>152</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <script type="text/javascript" src="./fastclick.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./index.js" charset="utf-8"></script> -->
+</body>
+</html>

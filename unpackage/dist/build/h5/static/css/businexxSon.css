@@ -1,0 +1,8 @@
+.tedp {
+  padding: 40upx 50upx;
+}
+.tedp .tenumber {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}

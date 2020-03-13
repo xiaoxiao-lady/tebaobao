@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "客服",
+  "bounce": "none",
+  "usingComponents": {
+    "chat-input": "/components/im-chat/chatinput",
+    "message-show": "/components/im-chat/messageshow",
+    "emoji": "/components/im-chat/Emoji"
+  }
+}

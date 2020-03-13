@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"checkal { height: ",[0,500],"; position: relative; }\n.",[1],"check-cont { height: calc(100% - ",[0,90],"); overflow-y: auto; }\n.",[1],"icon_e712 { text-align: center; font-size: ",[0,45],"; }\n",],undefined,{path:"./pages/personalSon/RefundDate.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/personalSon/RefundDate.wxml') } }));

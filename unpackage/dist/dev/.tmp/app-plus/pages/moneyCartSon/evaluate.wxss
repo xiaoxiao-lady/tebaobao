@@ -1,0 +1,6 @@
+
+.pageindex {
+    text-align: center;
+    padding: 20rpx;
+}
+

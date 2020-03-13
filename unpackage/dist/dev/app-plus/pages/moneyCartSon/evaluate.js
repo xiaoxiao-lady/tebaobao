@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"pageindex { text-align: center; padding: ",[0,20],"; }\n",],undefined,{path:"./pages/moneyCartSon/evaluate.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/moneyCartSon/evaluate.wxml') } }));

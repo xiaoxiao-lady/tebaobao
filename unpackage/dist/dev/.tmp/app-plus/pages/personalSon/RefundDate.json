@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "申请退款",
+  "usingComponents": {
+    "popup-layer": "/components/popup-layer"
+  }
+}

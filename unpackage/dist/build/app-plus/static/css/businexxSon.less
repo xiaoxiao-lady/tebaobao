@@ -1,0 +1,290 @@
+// 入驻流程
+
+.tedp {
+    padding: 40upx 0;
+    background-color: @colorfff;
+    .tenumber {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+        &::before {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 24upx;
+            content:'';
+            display: block;
+            width: 75%;
+            height: 2upx;
+            background-color: rgba(216,216,216,1);
+            z-index: 1;
+
+        }
+        >view {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            z-index: 9;
+            text {
+                font-size: @font28;
+                color: @fontColor;
+            }
+            &.active {
+                text {
+                    color: @color333;
+                }
+                
+                .te-index {
+                    background-color: @homeColor;
+                    color: @colorfff;
+                }
+            }
+        }
+        .te-index {
+            display: block;
+            width: 48upx;
+            height: 48upx;
+            text-align: center;
+            line-height: 48upx;
+            font-size: @font28;
+            color: @colorfff;
+            border-radius: 50%;
+            background-color:rgba(223,223,223,1);;
+            margin-bottom: 15upx;
+        }
+    }
+}
+.settled {
+    background-color: @colorfff;
+    padding: 17upx 0 30upx 0;
+    margin: 20upx 0;
+    .son {
+        color: @fontColor;
+        font-size: @font28;
+        padding-left: 24upx;
+    }
+    .son-list {
+        height: 98upx;
+        line-height: 98upx;
+        color: @color333;
+        font-size: @font28;
+        padding: 0 24upx;
+        border-bottom: 1upx solid rgba(249,249,249,1);
+    }
+}
+// 我的钱包
+.wallet {
+    padding: 40upx 50upx;
+    background-color: @colorF4F4F4;
+    width: 100%;
+    position: relative;
+    .moneimg {
+        width: 100%;
+        height: 300upx;
+    }
+    .moneybox {
+        width: 80%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: @colorfff;
+        .yu-e {
+            font-size: @font30;
+            
+        }
+        .moneynum {
+            font-size: 76upx;
+        }
+    }
+}
+
+.cashbank {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20upx!important;
+    margin-top: 20upx!important;
+    .cashimg {
+        width: 90upx;
+        height: 73upx;
+        margin-right: 20upx;
+    }
+    .cashname {
+        display: flex;
+        flex-direction: column;
+        text {
+            font-size: @font26;
+            color: @fontColor;
+        }
+    }
+    
+}
+
+
+// 提现记录
+.myrecord {
+    height: 136upx;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30upx;
+    align-items: center;
+    font-size: @font26;
+    color: @fontColor;
+    background-color: @colorfff;
+    border-bottom: 1upx solid @colorF4F4F4;
+    .title {
+        font-size: @font30;
+        font-weight:400;
+        color: @color333;
+    }
+    .color {
+        color: @homeColor;
+    }
+}
+
+// 优惠券
+.coupon-silder {
+    // padding: 0 0upx;
+    padding-top: 88upx;
+    background-color: @colorfff;
+    .silder-shop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25upx 0;
+        background-color: @colorfff;
+        image {
+            width: 67upx;
+            height: 67upx;
+            border-radius: 10upx;
+            background-color: #ccc;
+            margin-right: 20upx;
+        }
+        .left {
+            display: flex;
+            align-items: center;
+            font-size: @font30;
+        }
+        .text {
+            width: 116upx;
+            height: 44upx;
+            line-height: 44upx;
+            text-align: center;
+            border-radius: 22upx;
+            border: 1upx solid @fontColor;
+            color: @fontColor;
+        }
+    }
+
+    .silder-copon {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #FFF6F1;
+        padding: 20upx;
+        border-radius: 10upx;
+        margin-bottom: 20upx;
+        image {
+            width: 147upx;
+            height: 147upx;
+            background-color: #ccc;
+            border-radius: 10upx;
+            margin-right: 20upx;
+        }
+        .item-left {
+            display: flex;
+            justify-content: space-between;
+            .copon-cont {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                color: @fontColor;
+                font-size: @font26;
+                .money {
+                    font-size: 40upx;
+                    color: @homeColor;
+                    margin-right: 10upx;
+                }
+            }
+        }
+
+        .copon-text {
+            width: 116upx;
+            height: 44upx;
+            line-height: 44upx;
+            text-align: center;
+            background-color: @homeColor;
+            border-radius: 22upx;
+            color: @colorfff;
+            
+
+        }
+    }
+}
+
+// 收藏
+.coll-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 209upx;
+    padding: 0 25upx;
+    margin-bottom: 20upx;
+    &:nth-child(1) {
+        margin-top: 20upx;
+    }
+    image {
+        width: 209upx;
+        height: 209upx;
+        background-color: #ccc;
+        border-radius: 10upx;
+        margin-right: 20upx;
+    }
+    .coll-shop-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        height: 100%;
+        padding: 20upx 0;
+        font-size: @font30;
+        .color {
+            color: @homeColor;
+            font-weight:500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+    }
+}
+.youxiao {
+    color: @fontColor;
+    padding: 3upx 10upx;
+    border-radius: 10upx;
+    border: 1upx solid @fontColor;
+}
+.coll-shop-list {
+    display: flex;
+    align-items: center;
+    height: 136upx;
+    border-bottom: 1upx solid @colorF4F4F4;
+    padding: 0 25upx;
+    image {
+        height: 100upx;
+        width:100upx;
+        border-radius: 50%;
+        background-color: #ccc;
+        margin-right: 30upx;
+    }
+}

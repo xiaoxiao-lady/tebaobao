@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#FA3F3F",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "附近商家筛选",
+  "usingComponents": {
+    "uni-drawer": "/components/uni-drawer"
+  }
+}

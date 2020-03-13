@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "新人排行榜",
+  "usingComponents": {
+    "load-more": "/components/uni-load-more"
+  }
+}

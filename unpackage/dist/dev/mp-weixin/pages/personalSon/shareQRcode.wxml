@@ -1,0 +1,1 @@
+<block wx:if="{{pageShow}}"><view class="_div"><image src="{{src}}" data-event-opts="{{[['tap',[['preview',['$event']]]]]}}" bindtap="__e"></image></view></block>

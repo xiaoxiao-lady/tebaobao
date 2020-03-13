@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"header-filter { width: 100%; position: fixed!important; padding: 0 ",[0,170],"!important; }\n.",[1],"silder-list { padding: 0 ",[0,30],"; }\n",],undefined,{path:"./pages/moneyCartSon/Coupon.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/moneyCartSon/Coupon.wxml') } }));

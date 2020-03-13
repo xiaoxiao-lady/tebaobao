@@ -1,0 +1,12 @@
+
+.index_class {
+    background-color: #fff!important;
+}
+.uni-countdown__splitor {
+    font-size: 26rpx!important;
+    color: #fff!important;
+}
+.type-fliter {
+    position: relative!important;
+}
+

@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "我的钱包",
+  "titleNView": {
+    "buttons": [
+      {
+        "type": "none",
+        "float": "right",
+        "text": "余额明细",
+        "fontSize": "13px",
+        "width": "60px"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

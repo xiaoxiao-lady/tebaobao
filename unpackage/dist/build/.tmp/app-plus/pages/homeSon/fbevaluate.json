@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "发表评价",
+  "titleNView": {
+    "buttons": [
+      {
+        "text": "发布",
+        "fontSize": "14px",
+        "color": "#999999",
+        "width": "75px"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

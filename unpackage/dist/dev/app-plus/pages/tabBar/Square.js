@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"download-active { color: #FA3F3F!important; }\n",],undefined,{path:"./pages/tabBar/Square.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/tabBar/Square.wxml') } }));

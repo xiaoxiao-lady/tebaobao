@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "入驻流程",
+  "usingComponents": {
+    "uni-popup": "/components/uni-popup"
+  }
+}

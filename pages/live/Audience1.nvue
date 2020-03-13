@@ -1,0 +1,56 @@
+<template>
+  <div>
+    <video class="video" :src="src"  controls="nocontrols" auto-play="true"></video>
+    <image class="img-close" @click="close" src="../../static/images/img/close.png"></image>
+  </div>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        src:'http://play.s1107.net/live/910807.m3u8'
+      }
+    },
+    methods:{
+      onstart (event) {
+        this.state = 'onstart'
+      },
+      onpause (event) {
+        this.state = 'onpause'
+      },
+      onfinish (event) {
+        this.state = 'onfinish'
+      },
+      onfail (event) {
+        this.state = 'onfail'
+      },
+
+      close () {
+        uni.navigateBack({
+          delta: 1
+        })
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  .video {
+    flex: 1;
+    width: 750px;
+  }
+  .info {
+    margin-top: 40px;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .img-close {
+    position: absolute;
+    right: 30upx;
+    top: 60upx;
+    width: 60upx;
+    height: 60upx;
+  }
+</style>
